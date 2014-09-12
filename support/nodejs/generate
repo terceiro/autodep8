@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# FIXME should probably look inside package.json instead
+package=$(grep-dctrl -n -s Source -F Source -r '^node-.*$' debian/control)
+upstream_name=${package#node-}
+
+cat <<EOF
+Test-Command: nodejs -e "require('"'"'$upstream_name'"'"');"
+Depends: @
+EOF

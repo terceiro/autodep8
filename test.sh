@@ -47,6 +47,18 @@ test_perl_Build_PL() {
   run autodep8
 }
 
+test_detect_nodejs() {
+  has 'debian/control' 'Source: node-foo'
+  run autodep8
+}
+
+test_nodejs_upstream_name() {
+  has 'debian/control' 'Source: node-foo'
+  run autodep8
+  assertTrue 'get the upstream from node package' 'grep --quiet "require.*foo" stdout'
+  assertFalse 'does not include node- prefix' 'grep --quiet node-foo stdout'
+}
+
 ##################################################
 
 if [ -z "$ADTTMP" ]; then
