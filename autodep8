@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -eu
+
+if [ $# -gt 1 ]; then
+  echo "usage: $(basename $0) [SOURCEDIR]"
+  exit 128
+fi
+
+if [ -n "${1:-}" ]; then
+  cd "${1}"
+fi
+
+for support_dir in \
+  $(dirname $0)/support \
+  /usr/local/share/autodep8/support \
+  /usr/share/autodep8/support;
+do
+  if [ -d "$support_dir" ]; then
+    for detect in $(find $support_dir -name detect); do
+      if "$detect"; then
+        generate=${detect%/detect}/generate
+        "$generate"
+        exit 0
+      fi
+    done
+  fi
+done
+
+exit 1
