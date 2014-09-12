@@ -1,0 +1,18 @@
+Source: autodep8
+Section: devel
+Priority: optional
+Maintainer: Antonio Terceiro <terceiro@debian.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: autodep8
+Architecture: all
+Depends: dctrl-tools, ${misc:Depends}
+Description: DEP-8 test control file generator
+ autodep8 will detect well-known types of packages and generate
+ DEP-8-compliant test control files for them. It can be used by DEP-8
+ implementations to support implicit test control files.
+ .
+ Currently supported packages types:
+ - Ruby packages using gem2deb/gem2deb-test-runner
+ - Perl packages
