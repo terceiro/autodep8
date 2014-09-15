@@ -17,10 +17,9 @@ for support_dir in \
   /usr/share/autodep8/support;
 do
   if [ -d "$support_dir" ]; then
-    for detect in $(find $support_dir -name detect); do
-      if "$detect"; then
-        generate=${detect%/detect}/generate
-        "$generate"
+    for packagetype in $(find $support_dir -mindepth 1 -type d | xargs -n 1 basename); do
+      if grep-dctrl --quiet -F XS-Testsuite,Testsuite autopkgtest-pkg-$packagetype debian/control || $support_dir/$packagetype/detect; then
+        $support_dir/$packagetype/generate
         exit 0
       fi
     done

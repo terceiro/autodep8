@@ -1,5 +1,35 @@
 #!/bin/sh
 
+test_Testsuite_autopkgtest_pkg_ruby() {
+  has debian/control 'Testsuite: autopkgtest-pkg-ruby'
+  run autodep8
+}
+
+test_XS_Testsuite_autopkgtest_pkg_ruby() {
+  has debian/control 'XS-Testsuite: autopkgtest-pkg-ruby'
+  run autodep8
+}
+
+test_Testsuite_autopkgtest_pkg_perl() {
+  has debian/control 'Testsuite: autopkgtest-pkg-perl'
+  run autodep8
+}
+
+test_XS_Testsuite_autopkgtest_pkg_perl() {
+  has debian/control 'XS-Testsuite: autopkgtest-pkg-perl'
+  run autodep8
+}
+
+test_Testsuite_autopkgtest_pkg_nodejs() {
+  has debian/control 'Testsuite: autopkgtest-pkg-nodejs'
+  run autodep8
+}
+
+test_XS_Testsuite_autopkgtest_pkg_nodejs() {
+  has debian/control 'XS-Testsuite: autopkgtest-pkg-nodejs'
+  run autodep8
+}
+
 test_ruby_rake() {
   has debian/ruby-tests.rake
   run autodep8
