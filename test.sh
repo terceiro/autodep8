@@ -1,5 +1,10 @@
 #!/bin/sh
 
+test_no_detection() {
+  run autodep8
+  assertEquals 1 "$exitstatus"
+}
+
 test_Testsuite_autopkgtest_pkg_ruby() {
   has debian/control 'Testsuite: autopkgtest-pkg-ruby'
   check_run autodep8
