@@ -77,6 +77,12 @@ test_perl_Build_PL() {
   run autodep8
 }
 
+test_perl_test_pl() {
+  has test.pl
+  has Build.PL
+  run autodep8
+}
+
 test_detect_nodejs() {
   has 'debian/control' 'Source: node-foo'
   run autodep8

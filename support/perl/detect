@@ -2,4 +2,4 @@
 
 set -e
 
-test -d t -a \( -f Makefile.PL -o -f Build.PL \)
+test \( -d t -o -f test.pl \) -a \( -f Makefile.PL -o -f Build.PL \)
