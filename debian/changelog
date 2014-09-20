@@ -1,5 +1,5 @@
-autodep8 (0.1) UNRELEASED; urgency=medium
+autodep8 (0.1) unstable; urgency=medium
 
   * Initial release.
 
- -- Antonio Terceiro <terceiro@debian.org>  Fri, 12 Sep 2014 09:35:41 -0300
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 20 Sep 2014 10:45:21 -0300
