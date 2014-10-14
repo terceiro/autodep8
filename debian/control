@@ -4,6 +4,9 @@ Priority: optional
 Maintainer: Antonio Terceiro <terceiro@debian.org>
 Build-Depends: debhelper (>= 9), dctrl-tools, shunit2
 Standards-Version: 3.9.5
+Vcs-Git: git://anonscm.debian.org/collab-maint/autodep8.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/autodep8.git
+
 
 Package: autodep8
 Architecture: all
