@@ -7,6 +7,10 @@ autodep8 (0.2) UNRELEASED; urgency=medium
   * Switch maintainer to Autopkgtest team, and add myself as uploader, with
     Antonio's consent.
 
+  [ Jean-Baptiste Lallement ]
+  * support/dkms: Add support for dkms packages (Closes: #766668) This needs a
+    corresponding "dkms-autopkgtest" script in DKMS itself, see #769095.
+
  -- Antonio Terceiro <terceiro@debian.org>  Tue, 14 Oct 2014 15:25:18 -0300
 
 autodep8 (0.1) unstable; urgency=medium
