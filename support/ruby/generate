@@ -10,6 +10,6 @@ else
 fi
 
 cat <<EOF
-Test-Command: gem2deb-test-runner --autopkgtest 2>&1
+Test-Command: gem2deb-test-runner --autopkgtest --check-dependencies 2>&1
 Depends: @, $builddeps gem2deb-test-runner
 EOF
