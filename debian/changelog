@@ -1,6 +1,7 @@
 autodep8 (0.3) UNRELEASED; urgency=medium
 
   * split tests by language
+  * Ruby: remove commented lines from Build-Depends fields
 
  -- Antonio Terceiro <terceiro@debian.org>  Sun, 09 Aug 2015 12:11:11 -0300
 

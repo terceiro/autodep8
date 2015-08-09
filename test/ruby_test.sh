@@ -45,4 +45,17 @@ test_ruby_gem2deb_test_runner() {
   assertTrue "test depends on gem2deb-test-runner\n$(grep Depends: stdout)\n" 'grep Depends:.*gem2deb-test-runner stdout'
 }
 
+debian_control_with_comments='
+Build-Depends: debhelper,
+               gem2deb,
+#              foo,
+               bar,
+'
+test_ruby_removes_comments() {
+  has debian/ruby-tests.rb
+  echo "$debian_control_with_comments" > debian/control
+  check_run autodep8
+  assertFalse "should remove comments from Build-Depends" "grep '^Depends:.*#' stdout"
+}
+
 . shunit2
