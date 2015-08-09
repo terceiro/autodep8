@@ -12,8 +12,9 @@ $(install_support): install-%: support/%
 	install -d $(DESTDIR)/$(PREFIX)/share/autodep8/$<
 	install -m 755 $^/* $(DESTDIR)/$(PREFIX)/share/autodep8/$<
 
+.PHONY: test
 test:
-	./test.sh
+	./test/run.sh test/*_test.sh
 
 check: test
 
