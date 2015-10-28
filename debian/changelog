@@ -2,6 +2,10 @@ autodep8 (0.3) UNRELEASED; urgency=medium
 
   * split tests by language
   * Ruby: remove commented lines from Build-Depends fields
+  * NodeJS:
+    - also detect NodeJS packages by binary packages
+    - add support for reading upstream name from package.json (Closes: #803176)
+    - add support for reading upstream name from binary package
 
  -- Antonio Terceiro <terceiro@debian.org>  Sun, 09 Aug 2015 12:11:11 -0300
 

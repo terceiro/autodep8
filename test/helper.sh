@@ -17,7 +17,8 @@ has() {
   shift
   mkdir -p $(dirname "$file")
   if [ $# -gt 0 ]; then
-    echo "$@" > "$file"
+    printf "$@" > "$file"
+    echo >> "$file"
   else
     touch "$file"
   fi

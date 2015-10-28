@@ -1,8 +1,24 @@
 #!/bin/sh
 
-# FIXME should probably look inside package.json instead
-package=$(grep-dctrl -n -s Source -F Source -r '^node-.*$' debian/control)
-upstream_name=${package#node-}
+# try package.json
+upstream_name=$(python3 -c "import json; print(json.load(open('package.json'))['name'])" 2>/dev/null)
+
+# try source package
+if [ -z "$upstream_name" ]; then
+  package=$(grep-dctrl -n -s Source -F Source -r '^node-.*$' debian/control || true)
+  upstream_name=${package#node-}
+fi
+
+# try binary package
+if [ -z "$upstream_name" ]; then
+  package=$(grep-dctrl -n -s Package -F Package -r '^node-.*$' debian/control || true)
+  upstream_name=${package#node-}
+fi
+
+# give up
+if [ -z "$upstream_name" ]; then
+  exit 1
+fi
 
 cat <<EOF
 Test-Command: nodejs -e "require('"'"'$upstream_name'"'"');"

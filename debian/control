@@ -11,7 +11,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/autodep8.git
 
 Package: autodep8
 Architecture: all
-Depends: dctrl-tools, ${misc:Depends}
+Depends: dctrl-tools, python3, ${misc:Depends}
 Description: DEP-8 test control file generator
  autodep8 will detect well-known types of packages and generate
  DEP-8-compliant test control files for them. It can be used by DEP-8
