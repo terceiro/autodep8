@@ -1,1 +1,2 @@
 Test-Command: make test
+Depends: @, shunit2
