@@ -5,6 +5,8 @@ autodep8 (0.3) unstable; urgency=medium
   * NodeJS:
     - also detect NodeJS packages by binary packages
     - add support for reading upstream name from package.json (Closes: #803176)
+      - added dependency and build dependency on python3 (autopkgtest itself
+        already depends on python3 anyway)
     - add support for reading upstream name from binary package
   * debian/tests/control: added DEP-8 tests to fix a huge incoherence, which
     is autodep8 not being tested itself on CI.
