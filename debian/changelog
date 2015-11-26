@@ -6,6 +6,8 @@ autodep8 (0.3) UNRELEASED; urgency=medium
     - also detect NodeJS packages by binary packages
     - add support for reading upstream name from package.json (Closes: #803176)
     - add support for reading upstream name from binary package
+  * debian/tests/control: added DEP-8 tests to fix a huge incoherence, which
+    is autodep8 not being tested itself on CI.
 
  -- Antonio Terceiro <terceiro@debian.org>  Sun, 09 Aug 2015 12:11:11 -0300
 
