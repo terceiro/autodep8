@@ -1,4 +1,4 @@
-autodep8 (0.3) UNRELEASED; urgency=medium
+autodep8 (0.3) unstable; urgency=medium
 
   * split tests by language
   * Ruby: remove commented lines from Build-Depends fields
@@ -9,7 +9,7 @@ autodep8 (0.3) UNRELEASED; urgency=medium
   * debian/tests/control: added DEP-8 tests to fix a huge incoherence, which
     is autodep8 not being tested itself on CI.
 
- -- Antonio Terceiro <terceiro@debian.org>  Sun, 09 Aug 2015 12:11:11 -0300
+ -- Antonio Terceiro <terceiro@debian.org>  Thu, 26 Nov 2015 17:30:16 -0200
 
 autodep8 (0.2) unstable; urgency=medium
 
