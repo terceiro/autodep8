@@ -20,3 +20,4 @@ Description: DEP-8 test control file generator
  Currently supported packages types:
   - Ruby packages using gem2deb/gem2deb-test-runner
   - Perl packages
+  - Python packages

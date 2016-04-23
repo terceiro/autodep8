@@ -1,0 +1,54 @@
+#!/bin/sh
+
+module=
+py2_package=
+py3_package=
+
+# Try source package
+source_package=$(grep-dctrl -n -s Source -F Source -r '^python3\?-.*$' debian/control || true)
+if [ -n "$source_package" ] ; then
+    module=${source_package#python-}
+    py2_package=python-$module
+    py3_package=python3-$module
+fi
+
+# Try binary package(s)
+if [ -z "$source_package" ] ; then
+    binary_packages=$(grep-dctrl -n -s Package -F Package -r '^python3\?-.*$' debian/control || true)
+    if [ -n "$binary_packages" ] ; then
+        for binary_package in $binary_packages ; do
+            module=${binary_package#*-}
+            case $module in
+                *-doc|*-dbg|*-dbgsym|*-dev)
+                    continue
+                ;;
+            esac
+
+            py2_package=python-$module
+            py3_package=python3-$module
+            break
+        done
+    fi
+fi
+
+# Python2
+if [ -n "$py2_package" ]; then
+    if [ "$(grep-dctrl -n -s Package -F Package -X "$py2_package" debian/control)" ] ; then
+        cat <<EOF
+Test-Command: cd "\$ADTTMP" ; python -c "import $module; print $module"
+Depends: $py2_package
+
+EOF
+    fi
+fi
+
+# Python3
+if [ -n "$py3_package" ]; then
+    if [ $(grep-dctrl -n -s Package -F Package -X "$py3_package" debian/control) ] ; then
+        cat <<EOF
+Test-Command: cd "\$ADTTMP" ; python3 -c "import $module; print($module)"
+Depends: $py3_package
+
+EOF
+    fi
+fi
