@@ -9,6 +9,8 @@ autodep8 (0.4) UNRELEASED; urgency=medium
   [ Antonio Terceiro ]
   * Add missing NodeJS and DKMS into list of supported package types in this
     package's description
+  * NodeJS: change directory to $ADTTMP before trying to require module to
+    avoid using code from source package.
 
  -- Ondřej Nový <novy@ondrej.org>  Sat, 23 Apr 2016 21:17:37 +0200
 
