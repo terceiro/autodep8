@@ -4,6 +4,9 @@ autodep8 (0.5) unstable; urgency=medium
   * Add detection and simple test generation for R
   * Update d/control with supported package types
 
+  [ Antonio Terceiro ]
+  * Build and install a manpage out of README.md
+
  -- Antonio Terceiro <terceiro@debian.org>  Mon, 25 Apr 2016 11:53:47 -0300
 
 autodep8 (0.4) unstable; urgency=medium

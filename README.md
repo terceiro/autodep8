@@ -1,15 +1,17 @@
-# autodep8
+# NAME
+
+autodep8 - DEP-8 test control file generator
+
+# DESCRIPTION
 
 autodep8 will detect well-known types of packages and generate
 DEP-8-compliant test control files for them. It can be used by DEP-8
 implementations to support implicit test control files.
 
-## Usage
+# USAGE
 
-```
-$ autodep8                 # assumes source package in current dir
-$ autodep8 /path/to/srcpkg # path to source package
-```
+    $ autodep8                 # assumes source package in current dir
+    $ autodep8 /path/to/srcpkg # path to source package
 
 If a known package type is detected, autodep8 exits with 0 and prints the
 suggested contents of debian/tests/control to the standard output.
@@ -17,9 +19,9 @@ suggested contents of debian/tests/control to the standard output.
 If a known package type is NOT detected, autodep8 exits with 1 and
 produces not output.
 
-## Copyright
+# COPYRIGHT
 
-Copyright © 2014 by the contributing authors. See `git log` for details.
+Copyright (c) 2014 by the contributing authors. See `git log` for details.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
