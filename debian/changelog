@@ -2,6 +2,8 @@ autodep8 (0.5.1) UNRELEASED; urgency=medium
 
   * test/helper.sh: include extra information on failed tests to help
     debugging.
+  * avoid partial matches in `Testsuite` field, e.g. `r` should never match
+    `ruby`
 
  -- Antonio Terceiro <terceiro@debian.org>  Mon, 25 Apr 2016 16:01:47 -0300
 
