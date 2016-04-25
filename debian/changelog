@@ -4,6 +4,7 @@ autodep8 (0.5.1) UNRELEASED; urgency=medium
     debugging.
   * avoid partial matches in `Testsuite` field, e.g. `r` should never match
     `ruby`
+  * make sure supported languages are always tested in a consistent order
 
  -- Antonio Terceiro <terceiro@debian.org>  Mon, 25 Apr 2016 16:01:47 -0300
 
