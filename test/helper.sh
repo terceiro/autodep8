@@ -10,7 +10,11 @@ run() {
 
 check_run() {
   run "$@"
-  assertEquals "$@ failed!\n$(tail -n 10000 stderr stdout;)\n" 0 "$exitstatus"
+  if [ "$exitstatus" -eq 0 ]; then
+    assertTrue true
+  else
+    assertEquals "$@ failed!\n$(tail -n 10000 stderr stdout;)\n==> pwd <==\n$(pwd)\n==> directory contents <==\n$(find)\n==> end <==\n" 0 "$exitstatus"
+  fi
 }
 
 has() {
