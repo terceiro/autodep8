@@ -2,13 +2,11 @@
 
 test_Testsuite_autopkgtest_pkg_elpa() {
   has debian/control 'Testsuite: autopkgtest-pkg-elpa'
-  has debian/rules 'foo'
   check_run autodep8
 }
 
 test_XS_Testsuite_autopkgtest_pkg_elpa() {
   has debian/control 'XS-Testsuite: autopkgtest-pkg-elpa'
-  has debian/rules 'foo'
   check_run autodep8
 }
 
