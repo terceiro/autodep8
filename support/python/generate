@@ -15,7 +15,7 @@ fi
 
 source_package=$(grep-dctrl -n -s Source -F Source -r '^pypy-.*$' debian/control || true)
 if [ -n "$source_package" ] ; then
-    module=${source_package#python-}
+    module=${source_package#pypy-}
     pypy_package=pypy-$module
 fi
 
