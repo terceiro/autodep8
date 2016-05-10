@@ -13,6 +13,7 @@ test_XS_Testsuite_autopkgtest_pkg_elpa() {
 test_elpa_test_ert() {
   has debian/control 'Build-Depends: dh-elpa'
   has debian/rules 'foo'
+  has debian/compat '10'
   has test.el '(ert-deftest foo)'
   check_run autodep8
 }
@@ -20,12 +21,14 @@ test_elpa_test_ert() {
 test_elpa_test_buttercup() {
   has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
   has debian/rules 'foo'
+  has debian/compat '10'
   check_run autodep8
 }
 
 test_elpa_test_disabled() {
   has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
   has debian/rules 'export DH_ELPA_TEST_DISABLE'
+  has debian/compat '10'
   run autodep8
   assertEquals 1 "$exitstatus"
   assertEquals "" "$(cat stdout stderr)"
@@ -34,6 +37,16 @@ test_elpa_test_disabled() {
 test_elpa_test_non_elpa() {
   has debian/control 'Build-Depends: dh-fake-elpa, elpa-buttercup'
   has debian/rules 'foo'
+  has debian/compat '10'
+  run autodep8
+  assertEquals 1 "$exitstatus"
+  assertEquals "" "$(cat stdout stderr)"
+}
+
+test_elpa_test_bad_compat() {
+  has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
+  has debian/rules 'foo'
+  has debian/compat '9'
   run autodep8
   assertEquals 1 "$exitstatus"
   assertEquals "" "$(cat stdout stderr)"

@@ -2,12 +2,14 @@
 
 # Maintainer: Sean Whitton <spwhitton@spwhitton.name>
 
-# We check that: this package uses dh_elpa and the user hasn't
-# disabled dh_elpa_test, and that there is actually a testsuite to run
+# We check that: this package uses dh_elpa, debhelper compat level is
+# at least 10 (see dh_elpa_test(1)), and the user hasn't disabled
+# dh_elpa_test, and that there is actually a testsuite to run
 
 set -e
 
 (! grep -q ".*DH_ELPA_TEST_DISABLE.*" debian/rules) && \
+    test $(cat debian/compat) -ge 10 && \
     grep-dctrl -q -F Build-Depends dh-elpa debian/control && \
     ( grep -q -r ".*(ert-deftest.*" . || \
       grep-dctrl -q -F Build-Depends elpa-buttercup debian/control )
