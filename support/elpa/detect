@@ -8,6 +8,9 @@
 
 set -e
 
+# check that the file exists first, so that if it doesn't cat doesn't
+# produce stderr output which disrupts other test/*_test.sh
+test -e debian/compat
 test "$(cat debian/compat)" -ge 10
 (! grep -q ".*DH_ELPA_TEST_DISABLE.*" debian/rules)
 grep-dctrl -q -F Build-Depends dh-elpa debian/control
