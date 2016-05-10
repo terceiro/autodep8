@@ -10,4 +10,4 @@ set -e
 (! grep -q ".*DH_ELPA_TEST_DISABLE.*" debian/rules) && \
     grep-dctrl -q -F Build-Depends dh-elpa debian/control && \
     ( grep -q -r ".*(ert-deftest.*" . || \
-      grep-dctrl -q -F Build-Depends elpa-buttercup debian/rules )
+      grep-dctrl -q -F Build-Depends elpa-buttercup debian/control )
