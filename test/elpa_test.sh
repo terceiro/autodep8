@@ -24,15 +24,19 @@ test_elpa_test_buttercup() {
 }
 
 test_elpa_test_disabled() {
-  has debian/control 'Build-Depends: dh-elpa'
+  has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
   has debian/rules 'export DH_ELPA_TEST_DISABLE'
-  check_fail autodep8
+  run autodep8
+  assertEquals 1 "$exitstatus"
+  assertEquals "" "$(cat stdout stderr)"
 }
 
 test_elpa_test_non_elpa() {
-  has debian/control 'Build-Depends: dh-fake-elpa'
+  has debian/control 'Build-Depends: dh-fake-elpa, elpa-buttercup'
   has debian/rules 'foo'
-  check_fail autodep8
+  run autodep8
+  assertEquals 1 "$exitstatus"
+  assertEquals "" "$(cat stdout stderr)"
 }
 
 . shunit2
