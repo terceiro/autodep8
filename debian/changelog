@@ -1,6 +1,7 @@
 autodep8 (0.6) UNRELEASED; urgency=medium
 
   * Add support for ELPA package testsuites run by dh_elpa_test.
+  * Bump copyright years in d/copyright.
 
  -- Sean Whitton <spwhitton@spwhitton.name>  Tue, 10 May 2016 11:51:14 -0700
 
