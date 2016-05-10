@@ -40,6 +40,8 @@ show() {
 setUp() {
   tmpdir=$(mktemp -d)
   cd "$tmpdir"
+  has_dir debian
+  has 'debian/control'
 }
 
 origdir=$(pwd)
