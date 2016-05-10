@@ -1,5 +1,6 @@
 autodep8 (0.6) UNRELEASED; urgency=medium
 
+  * Add check_fail function to test/helper.sh.
   * Add support for ELPA package testsuites run by dh_elpa_test.
   * Bump copyright years in d/copyright.
 

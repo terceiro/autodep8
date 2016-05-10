@@ -17,6 +17,15 @@ check_run() {
   fi
 }
 
+check_fail() {
+  run "$@"
+  if [ "$exitstatus" -ne 0 ]; then
+    assertTrue true
+  else
+    assertEquals "$@ succeeded when it was expected to fail!\n$(tail -n 10000 stderr stdout;)\n==> pwd <==\n$(pwd)\n==> directory contents <==\n$(find)\n==> end <==\n" 0 "$exitstatus"
+  fi
+}
+
 has() {
   file="$1"
   shift
