@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Maintainer: Sean Whitton <spwhitton@spwhitton.name>
+
+# We check that: this package uses dh_elpa and the user hasn't
+# disabled dh_elpa_test, and that there is actually a testsuite to run
+
+set -e
+
+(! grep -q ".*DH_ELPA_TEST_DISABLE.*" debian/rules) && \
+    grep-dctrl -q -F Build-Depends dh-elpa debian/control && \
+    ( grep -q -r ".*(ert-deftest.*" . || \
+      grep-dctrl -q -F Build-Depends elpa-buttercup debian/rules )

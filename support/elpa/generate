@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Maintainer: Sean Whitton <spwhitton@spwhitton.name>
+
+# Remarks:
+
+# 1. Many ELPA test suites write to the build tree, so we need that
+#    restriction in the general case.
+
+# 2. We invoke `debian/rules build' rather than simply `dh_elpa_test'
+#    because that ensures that any DH_ELPA_TEST_* environment
+#    variables the user has specifies in debian/rules are exported
+#    such that dh_elpa_test can see them.  See dh_elpa_test(1).
+
+cat <<EOF
+Test-Command: debian/rules build
+Depends: @, @builddeps@
+Restrictions: rw-build-tree
+EOF
