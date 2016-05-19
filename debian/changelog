@@ -1,3 +1,9 @@
+autodep8 (0.5.2) UNRELEASED; urgency=medium
+
+  * Python: Substitute hyphen with underscore for module name
+
+ -- Ondřej Nový <novy@ondrej.org>  Thu, 19 May 2016 17:25:59 +0200
+
 autodep8 (0.5.1) unstable; urgency=medium
 
   * test/helper.sh: include extra information on failed tests to help
