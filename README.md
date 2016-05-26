@@ -19,6 +19,12 @@ suggested contents of debian/tests/control to the standard output.
 If a known package type is NOT detected, autodep8 exits with 1 and
 produces not output.
 
+# COMBINING AUTO-GENERATED TESTS WITH MANUALLY SPECIFIED ONES
+
+If `debian/tests/control.autodep8` exists, autodep8 will prepend the contents
+of that file to its own output. In that case, autodep8 will exit with a status
+of 0 even if no known package type is detected.
+
 # COPYRIGHT
 
 Copyright (c) 2014 by the contributing authors. See `git log` for details.
