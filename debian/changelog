@@ -4,7 +4,7 @@ autodep8 (0.5.2) UNRELEASED; urgency=medium
   * Python: Substitute hyphen with underscore for module name
 
   [ Barry Warsaw ]
-  * Python: Added support for PyPy
+  * Python: Added support for PyPy (Closes: #823883)
 
  -- Ondřej Nový <novy@ondrej.org>  Thu, 19 May 2016 17:25:59 +0200
 
