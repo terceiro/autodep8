@@ -10,6 +10,7 @@ autodep8 (0.5.2) UNRELEASED; urgency=medium
   * If `debian/tests/control.autodep8` exists, autodep8 will prepend the
     contents of that file to its own output. (Closes: #823931)
   * dkms: add missing `@` in Depends: line of generated test control files
+  * manpage: include one example for each supported package type
 
  -- Ondřej Nový <novy@ondrej.org>  Thu, 19 May 2016 17:25:59 +0200
 

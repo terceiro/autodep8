@@ -25,6 +25,10 @@ If `debian/tests/control.autodep8` exists, autodep8 will prepend the contents
 of that file to its own output. In that case, autodep8 will exit with a status
 of 0 even if no known package type is detected.
 
+# EXAMPLES OF PRODUCED TEST SUITES
+
+See [examples.md](examples.md).
+
 # COPYRIGHT
 
 Copyright (c) 2014 by the contributing authors. See `git log` for details.
