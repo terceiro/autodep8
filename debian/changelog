@@ -1,13 +1,13 @@
-autodep8 (0.7) UNRELEASED; urgency=medium
+autodep8 (0.7) unstable; urgency=medium
 
   [ Ondřej Nový ]
   * Python: Run import test on all Python versions
 
   [ Stefano Rivera ]
   * Ruby: strip build profile restrictions when producing test dependencies
-    from build dependencies
+    from build dependencies (Closes: #832567)
 
- -- Ondřej Nový <onovy@debian.org>  Sat, 25 Jun 2016 23:37:38 +0200
+ -- Antonio Terceiro <terceiro@debian.org>  Thu, 28 Jul 2016 08:57:42 -0300
 
 autodep8 (0.6) unstable; urgency=medium
 
