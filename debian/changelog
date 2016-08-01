@@ -1,8 +1,9 @@
-autodep8 (0.7.1) UNRELEASED; urgency=medium
+autodep8 (0.7.1) unstable; urgency=medium
 
+  [ Ondřej Nový ]
   * Python: Ignore warnings (stderr) from pyversions
 
- -- Ondřej Nový <onovy@debian.org>  Mon, 01 Aug 2016 17:03:25 +0200
+ -- Antonio Terceiro <terceiro@debian.org>  Mon, 01 Aug 2016 14:52:16 -0300
 
 autodep8 (0.7) unstable; urgency=medium
 
