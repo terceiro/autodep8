@@ -1,6 +1,7 @@
 # type  example package
 # ----  ---------------
 dkms    kpatch
+elpa    flycheck
 nodejs  node-tar
 perl    libtest-most-perl
 python  python-flaky
