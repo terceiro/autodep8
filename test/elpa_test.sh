@@ -25,9 +25,18 @@ test_elpa_test_buttercup() {
   check_run autodep8
 }
 
-test_elpa_test_disabled() {
+test_elpa_test_disabled_one() {
   has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
   has debian/rules 'export DH_ELPA_TEST_DISABLE'
+  has debian/compat '10'
+  run autodep8
+  assertEquals 1 "$exitstatus"
+  assertEquals "" "$(cat stdout stderr)"
+}
+
+test_elpa_test_disabled_two() {
+  has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
+  has debian/elpa-test 'disabled = yes'
   has debian/compat '10'
   run autodep8
   assertEquals 1 "$exitstatus"
