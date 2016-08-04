@@ -24,6 +24,20 @@ detect_by_source_contents() {
   $pkgdir/detect
 }
 
+if [ ! -f debian/control ]; then
+  echo "E: not inside a Debian source package" >&2
+  exit 1
+fi
+
+rc=1
+
+if [ -f debian/tests/control.autodep8 ]; then
+  cat debian/tests/control.autodep8
+  echo
+  rc=0 # will now exit successfully even if we can't detect a package type.
+fi
+
+
 for support_dir in \
   $(dirname $0)/support \
   /usr/local/share/autodep8/support \
@@ -42,4 +56,4 @@ do
   fi
 done
 
-exit 1
+exit $rc

@@ -6,8 +6,11 @@ all: autodep8.1
 autodep8.1: autodep8.pod
 	pod2man --verbose --name autodep8 -c '' -r '' --utf8 $< $@ || ($(RM) $@; false)
 
-autodep8.pod: README.md
-	sed -e 's/^#/=head1/' $< > $@ || ($(RM) $@; false)
+autodep8.pod: README.md examples.md
+	(sed -e '/examples.md/ r examples.md' README.md | sed -e '/examples.md/d; s/^##/=head2/; s/^#/=head1/' > $@) || ($(RM) $@; false)
+
+update-examples:
+	sh examples.sh > examples.md
 
 install: $(install_support)
 	install -d $(DESTDIR)/$(PREFIX)/bin

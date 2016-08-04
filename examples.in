@@ -1,0 +1,8 @@
+# type  example package
+# ----  ---------------
+dkms    kpatch
+nodejs  node-tar
+perl    libtest-most-perl
+python  python-flaky
+r       r-cran-evaluate
+ruby    ruby-sqlite3

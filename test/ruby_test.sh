@@ -58,4 +58,11 @@ test_ruby_removes_comments() {
   assertFalse "should remove comments from Build-Depends" "grep '^Depends:.*#' stdout"
 }
 
+test_ruby_build_profiles() {
+  has debian/ruby-tests.rb
+  echo "Build-Depends: foo <!nocheck>, bar" > debian/control
+  check_run autodep8
+  assertFalse "should remove build profiles" "grep nocheck stdout"
+}
+
 . shunit2
