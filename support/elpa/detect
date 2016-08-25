@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Maintainer: Sean Whitton <spwhitton@spwhitton.name>
+
+# We check that: this package uses dh_elpa, debhelper compat level is
+# at least 10 (see dh_elpa_test(1)), and the user hasn't disabled
+# dh_elpa_test, and that there is actually a testsuite to run
+
+set -e
+
+# check that the file exists first, so that if it doesn't cat doesn't
+# produce stderr output which disrupts other test/*_test.sh
+test -e debian/compat
+test "$(cat debian/compat)" -ge 10
+(! grep -q ".*DH_ELPA_TEST_DISABLE.*" debian/rules) 2>/dev/null
+(! grep -q "^disabled[ ]*=" debian/elpa-test) 2>/dev/null
+grep-dctrl -q -F Build-Depends dh-elpa debian/control
+( grep -q -r ".*(ert-deftest.*" . || \
+        grep-dctrl -q -F Build-Depends elpa-buttercup debian/control )

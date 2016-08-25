@@ -5,6 +5,12 @@
     Restrictions: needs-root, allow-stderr
     Depends: @, dkms
 
+## elpa (flycheck)
+
+    Test-Command: dh_elpa_test --autopkgtest
+    Depends: @, @builddeps@
+    Restrictions: rw-build-tree
+
 ## nodejs (node-tar)
 
     Test-Command: cd $ADTTMP && nodejs -e "require('"'"'tar'"'"');"
