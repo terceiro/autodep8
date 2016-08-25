@@ -1,11 +1,12 @@
-autodep8 (0.8) UNRELEASED; urgency=medium
+autodep8 (0.8) unstable; urgency=medium
 
+  [ Sean Whitton ]
   * Add support for ELPA package testsuites run by dh_elpa_test
     (Closes: #823979).
   * Add test suite for ELPA package testsuite detection.
   * Bump copyright years in d/copyright.
 
- -- Sean Whitton <spwhitton@spwhitton.name>  Tue, 10 May 2016 11:51:14 -0700
+ -- Antonio Terceiro <terceiro@debian.org>  Thu, 25 Aug 2016 20:36:02 -0300
 
 autodep8 (0.7.1) unstable; urgency=medium
 
