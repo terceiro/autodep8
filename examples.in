@@ -2,6 +2,7 @@
 # ----  ---------------
 dkms    kpatch
 elpa    flycheck
+go      prometheus
 nodejs  node-tar
 perl    libtest-most-perl
 python  python-flaky

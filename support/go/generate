@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Stderr is required because many go tools output status info to stderr.
+cat <<EOF
+Test-Command: /usr/bin/dh_golang_autopkgtest
+Depends: @, @builddeps@, dh-golang
+Restrictions: allow-stderr
+EOF

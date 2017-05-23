@@ -11,6 +11,12 @@
     Depends: @, @builddeps@
     Restrictions: rw-build-tree
 
+## go (prometheus)
+
+    Test-Command: /usr/bin/dh_golang_autopkgtest
+    Depends: @builddeps@, dh-golang
+    Restrictions: rw-build-tree, allow-stderr
+
 ## nodejs (node-tar)
 
     Test-Command: cd $ADTTMP && nodejs -e "require('"'"'tar'"'"');"
