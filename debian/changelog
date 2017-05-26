@@ -1,8 +1,9 @@
-autodep8 (0.9) UNRELEASED; urgency=medium
+autodep8 (0.9) unstable; urgency=medium
 
+  [ Martín Ferrari ]
   * Add support for Go package testsuites run by dh_golang_autopkgtest.
 
- -- Martín Ferrari <tincho@debian.org>  Tue, 23 May 2017 11:40:55 +0100
+ -- Antonio Terceiro <terceiro@debian.org>  Fri, 26 May 2017 07:42:20 -0300
 
 autodep8 (0.8) unstable; urgency=medium
 
