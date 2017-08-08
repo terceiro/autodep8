@@ -1,3 +1,9 @@
+autodep8 (0.10) UNRELEASED; urgency=medium
+
+  * Mention the Go support in the package description
+
+ -- Antonio Terceiro <terceiro@debian.org>  Tue, 08 Aug 2017 11:24:22 -0400
+
 autodep8 (0.9) unstable; urgency=medium
 
   [ Martín Ferrari ]

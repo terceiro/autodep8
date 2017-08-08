@@ -25,3 +25,4 @@ Description: DEP-8 test control file generator
   - Kernel module packages using DKMS
   - R packages
   - Emacs Lisp ELPA packages
+  - Go packages
