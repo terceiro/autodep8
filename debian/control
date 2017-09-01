@@ -26,3 +26,4 @@ Description: DEP-8 test control file generator
   - R packages
   - Emacs Lisp ELPA packages
   - Go packages
+  - Octave-Forge packages

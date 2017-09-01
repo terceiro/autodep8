@@ -1,0 +1,8 @@
+#!/bin/sh
+
+### Try to select only the packages from Octave-Forge that are
+### maintained by the Debian Octave Group
+
+grep-dctrl --quiet -FBuild-Depends -r octave-pkg-dev debian/control	\
+    && grep-dctrl --quiet -F Source -r '^octave-.*$' debian/control	\
+    && test -f DESCRIPTION						\
