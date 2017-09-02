@@ -14,8 +14,8 @@
 ## go (prometheus)
 
     Test-Command: /usr/bin/dh_golang_autopkgtest
-    Depends: @, @builddeps@, dh-golang
-    Restrictions: allow-stderr
+    Depends: @builddeps@, dh-golang
+    Restrictions: rw-build-tree, allow-stderr
 
 ## nodejs (node-tar)
 
@@ -42,11 +42,11 @@
 
 ## python (python-flaky)
 
-    Test-Command: set -e ; for py in $(pyversions -r 2>/dev/null) ; do cd "$ADTTMP" ; echo "Testing with $py:" ; $py -c "import flaky; print flaky" ; done
-    Depends: python-all, python-flaky
+    Test-Command: cd "$ADTTMP" ; python -c "import flaky; print flaky"
+    Depends: python-flaky
     
-    Test-Command: set -e ; for py in $(py3versions -r 2>/dev/null) ; do cd "$ADTTMP" ; echo "Testing with $py:" ; $py -c "import flaky; print(flaky)" ; done
-    Depends: python3-all, python3-flaky
+    Test-Command: cd "$ADTTMP" ; python3 -c "import flaky; print(flaky)"
+    Depends: python3-flaky
     
     Test-Command: cd "$ADTTMP" ; pypy -c "import flaky; print flaky"
     Depends: pypy-flaky
