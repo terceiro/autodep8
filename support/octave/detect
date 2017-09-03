@@ -1,12 +1,10 @@
 #!/bin/sh
 
-### Select only the packages from Octave-Forge that are maintained through
-### the octave-pkg-dev tools.  This restriction is necessary because the
-### generated autopkgtest command relies on the infrastructure provided by
-### the octave-pkg-dev package, namely the use of a CDBS-based debian/rules
-### that accepts the 'check-pkg' target.
+### Select only the packages from Octave-Forge.  The detection is based on
+### the existence of an inst/ directory (which contains the *.m to be
+### tested) and a DESCRIPTION file, besides the name of the source package,
+### which must start with ""octave-"".
 
-test -f debian/rules									\
-    && grep --quiet '^include /usr/share/cdbs/1/class/octave-pkg.mk$' debian/rules	\
-    && grep-dctrl --quiet -F Source -r '^octave-.*$' debian/control			\
-    && test -f DESCRIPTION
+test -d inst								\
+    && test -f DESCRIPTION						\
+    && grep-dctrl --quiet -F Source -r '^octave-.*$' debian/control
