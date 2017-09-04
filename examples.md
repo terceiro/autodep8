@@ -24,8 +24,8 @@
 
 ## octave (octave-signal)
 
-    Test-Command: debian/rules check-pkg
-    Depends: @, octave-pkg-dev (>= 1.5.0)
+    Test-Command: /usr/share/octave-pkg-dev/check-pkg
+    Depends: @, octave-autopkgtest
     Restrictions: allow-stderr
 
 ## perl (libtest-most-perl)
