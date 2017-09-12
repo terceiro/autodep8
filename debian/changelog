@@ -1,8 +1,15 @@
 autodep8 (0.10) UNRELEASED; urgency=medium
 
+  * Team upload.
+
+  [ Antonio Terceiro ]
   * Mention the Go support in the package description
 
- -- Antonio Terceiro <terceiro@debian.org>  Tue, 08 Aug 2017 11:24:22 -0400
+  [ Rafael Laboissiere ]
+  * Add support for Octave-Forge packages (Closes: #874306)
+  * Bump Standards-Version to 4.1.0 (no changes needed)
+
+ -- Rafael Laboissiere <rafael@debian.org>  Tue, 12 Sep 2017 11:38:05 -0300
 
 autodep8 (0.9) unstable; urgency=medium
 
