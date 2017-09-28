@@ -1,3 +1,9 @@
 *.1
 *.pod
 /tmp
+/debian/.debhelper/
+/debian/autodep8.debhelper.log
+/debian/autodep8.substvars
+/debian/autodep8/
+/debian/debhelper-build-stamp
+/debian/files
