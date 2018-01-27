@@ -1,3 +1,11 @@
+autodep8 (0.11) UNRELEASED; urgency=medium
+
+  * Team upload.
+
+  * Use dh-octave-autopkgtest for Octave support
+
+ -- Rafael Laboissiere <rafael@debian.org>  Fri, 26 Jan 2018 19:43:53 -0200
+
 autodep8 (0.10) unstable; urgency=medium
 
   * Team upload.
