@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Autopkgtest team <autopkgtest-devel@lists.alioth.debian.org>
 Uploaders: Antonio Terceiro <terceiro@debian.org>, Martin Pitt <mpitt@debian.org>
-Build-Depends: debhelper (>= 9), dctrl-tools, shunit2, python3
+Build-Depends: debhelper (>= 11), dctrl-tools, shunit2, python3
 Standards-Version: 4.1.0
 Vcs-Git: https://anonscm.debian.org/git/collab-maint/autodep8.git
 Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/autodep8.git
