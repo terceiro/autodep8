@@ -24,8 +24,8 @@
 
 ## octave (octave-signal)
 
-    Test-Command: /usr/share/octave-pkg-dev/check-pkg
-    Depends: @, octave-autopkgtest
+    Test-Command: DH_OCTAVE_TEST_ENV="xvfb-run -a" /usr/bin/dh_octave_check
+    Depends: @, dh-octave-autopkgtest, xauth, xvfb
     Restrictions: allow-stderr
 
 ## perl (libtest-most-perl)
