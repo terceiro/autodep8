@@ -1,3 +1,10 @@
+autodep8 (0.11.1) unstable; urgency=medium
+
+  * Makefile: install manpage only once, fixing frequent (but not
+    deterministic) failures in parallel builds.
+
+ -- Antonio Terceiro <terceiro@debian.org>  Fri, 02 Feb 2018 11:02:23 -0200
+
 autodep8 (0.11) unstable; urgency=medium
 
   * Team upload.
