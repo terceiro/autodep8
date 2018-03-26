@@ -39,7 +39,7 @@ fi
 
 
 for support_dir in \
-  $(dirname $0)/support \
+  $(dirname $(readlink -f $0))/support \
   /usr/local/share/autodep8/support \
   /usr/share/autodep8/support;
 do
