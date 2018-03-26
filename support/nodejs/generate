@@ -21,6 +21,6 @@ if [ -z "$upstream_name" ]; then
 fi
 
 cat <<EOF
-Test-Command: cd \$ADTTMP && nodejs -e "require('"'"'$upstream_name'"'"');"
+Test-Command: cd \$ADTTMP && nodejs -e "require('$upstream_name');"
 Depends: @
 EOF

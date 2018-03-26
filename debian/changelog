@@ -1,3 +1,10 @@
+autodep8 (0.12) UNRELEASED; urgency=medium
+
+  * nodejs: We don't need to do fancy quoting any more. Since autopkgtest
+    commit 702c31af, autopkgtest will escape ' properly for us.
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 26 Mar 2018 12:57:52 +0100
+
 autodep8 (0.11.1) unstable; urgency=medium
 
   * Makefile: install manpage only once, fixing frequent (but not
