@@ -1,16 +1,7 @@
 #!/bin/sh
 
-# R DESCRIPTION files use the debian control file format
-# (see R package manual 1.1.1)
-upstream_name=$(grep-dctrl -s Package -n '' DESCRIPTION)
-
-# give up
-if [ -z "$upstream_name" ]; then
-  exit 1
-fi
-
 cat <<EOF
-Test-Command: R -e "library('$upstream_name')"
-Depends: @
+Test-Command: /usr/share/dh-r/pkg-r-autopkgtest
+Depends: @, pkg-r-autopkgtest
 Restrictions: allow-stderr
 EOF
