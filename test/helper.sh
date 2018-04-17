@@ -1,4 +1,4 @@
-if [ -z "$ADTTMP" ]; then
+if [ -z "$AUTOPKGTEST_TMP" ]; then
   # only use local binaries if not testing the instaled package
   export PATH="$(readlink -f $(dirname $0))/..:$PATH"
 fi

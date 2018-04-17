@@ -62,7 +62,7 @@ module=$(echo "$module" | sed 's/-/_/g')
 if [ -n "$py2_package" ]; then
     if [ "$(grep-dctrl -n -s Package -F Package -X "$py2_package" debian/control)" ] ; then
         cat <<EOF
-Test-Command: set -e ; for py in \$(pyversions -r 2>/dev/null) ; do cd "\$ADTTMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print $module" ; done
+Test-Command: set -e ; for py in \$(pyversions -r 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print $module" ; done
 Depends: python-all, $py2_package
 
 EOF
@@ -73,7 +73,7 @@ fi
 if [ -n "$py3_package" ]; then
     if [ $(grep-dctrl -n -s Package -F Package -X "$py3_package" debian/control) ] ; then
         cat <<EOF
-Test-Command: set -e ; for py in \$(py3versions -r 2>/dev/null) ; do cd "\$ADTTMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print($module)" ; done
+Test-Command: set -e ; for py in \$(py3versions -r 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print($module)" ; done
 Depends: python3-all, $py3_package
 
 EOF
@@ -84,7 +84,7 @@ fi
 if [ -n "$pypy_package" ]; then
     if [ $(grep-dctrl -n -s Package -F Package -X "$pypy_package" debian/control) ] ; then
         cat <<EOF
-Test-Command: cd "\$ADTTMP" ; pypy -c "import $module; print $module"
+Test-Command: cd "\$AUTOPKGTEST_TMP" ; pypy -c "import $module; print $module"
 Depends: $pypy_package
 
 EOF
