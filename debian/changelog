@@ -1,7 +1,11 @@
 autodep8 (0.12) UNRELEASED; urgency=medium
 
+  [ Iain Lane ]
   * nodejs: We don't need to do fancy quoting any more. Since autopkgtest
     commit 702c31af, autopkgtest will escape ' properly for us.
+
+  [ Ondřej Nový ]
+  * Use AUTOPKGTEST_TMP instead of ADTTMP
 
  -- Iain Lane <iain.lane@canonical.com>  Mon, 26 Mar 2018 12:57:52 +0100
 
