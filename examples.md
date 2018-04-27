@@ -45,7 +45,7 @@
     Test-Command: set -e ; for py in $(pyversions -r 2>/dev/null) ; do cd "$AUTOPKGTEST_TMP" ; echo "Testing with $py:" ; $py -c "import flaky; print flaky" ; done
     Depends: python-all, python-flaky
     
-    Test-Command: set -e ; for py in $(py3versions -r 2>/dev/null) ; do cd "$AUTOPKGTEST_TMPP" ; echo "Testing with $py:" ; $py -c "import flaky; print(flaky)" ; done
+    Test-Command: set -e ; for py in $(py3versions -r 2>/dev/null) ; do cd "$AUTOPKGTEST_TMP" ; echo "Testing with $py:" ; $py -c "import flaky; print(flaky)" ; done
     Depends: python3-all, python3-flaky
     
     Test-Command: cd "$AUTOPKGTEST_TMP" ; pypy -c "import flaky; print flaky"
