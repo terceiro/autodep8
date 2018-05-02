@@ -19,7 +19,7 @@
 
 ## nodejs (node-tar)
 
-    Test-Command: cd "$AUTOPKGTEST_TMP" && nodejs -e "require('"'"'tar'"'"');"
+    Test-Command: cd "$AUTOPKGTEST_TMP" && nodejs -e "require('tar');"
     Depends: @
 
 ## octave (octave-signal)
