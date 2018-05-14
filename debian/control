@@ -1,7 +1,7 @@
 Source: autodep8
 Section: devel
 Priority: optional
-Maintainer: Debian CI team <debian-ci@lists.debian.org>
+Maintainer: Debian CI team <team+ci@tracker.debian.org>
 Uploaders: Antonio Terceiro <terceiro@debian.org>, Martin Pitt <mpitt@debian.org>, Paul Gevers <elbrus@debian.org>
 Build-Depends: debhelper (>= 11), dctrl-tools, shunit2, python3
 Standards-Version: 4.1.3
