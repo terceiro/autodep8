@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cat <<EOF
-Test-Command: DH_OCTAVE_TEST_ENV="xvfb-run -a" /usr/bin/dh_octave_check
-Depends: @, dh-octave-autopkgtest, xauth, xvfb
+Test-Command: DH_OCTAVE_TEST_ENV="xvfb-run -a" /usr/bin/dh_octave_check --use-installed-package
+Depends: @, dh-octave-autopkgtest (>= 0.5.5), xauth, xvfb
 Restrictions: allow-stderr
 EOF
