@@ -3,7 +3,7 @@ Upstream-Name: autodep8
 Source: https://salsa.debian.org/ci-team/autodep8
 
 Files: *
-Copyright: 2014-2016 the contributing authors. See `git log` for details.
+Copyright: 2014-2018 the contributing authors. See `git log` for details.
 License: GPL-3.0+
 
 License: GPL-3.0+
