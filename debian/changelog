@@ -1,3 +1,27 @@
+autodep8 (0.13) unstable; urgency=medium
+
+  [ Antonio Terceiro ]
+  * Fix typo in examples.md
+
+  [ Graham Inggs ]
+  * Update examples.md since nodejs quoting is fixed
+
+  [ Rafael Laboissiere ]
+  * s/o/generate: Use option --use-installed-package in call to dh_octave_check.
+    Also, add a versioned dependency on dh-octave-autopkgtest, because this
+    option was introduced in version 0.5.6 of the package.
+    (Closes: #903498, #903409)
+  * d/control:
+    + Set Maintainer email address to team+ci@tracker.debian.org
+    + Add myself to the Uploaders list
+    + Bump Standards-Version to 4.1.5 (no changes needed)
+  * d/copyright:
+    + Use secure URL in Format header
+    + Use Salsa URL in Source header
+    + Update date of Copyright
+
+ -- Rafael Laboissiere <rafael@debian.org>  Thu, 12 Jul 2018 08:53:16 -0300
+
 autodep8 (0.12) unstable; urgency=medium
 
   [ Iain Lane ]
