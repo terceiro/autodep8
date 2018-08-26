@@ -42,4 +42,13 @@ test_no_inst_directory() {
   assertEquals "" "$(cat stdout stderr)"
 }
 
+test_build_depends() {
+  has_dir inst
+  has debian/control 'Source: octave-foo
+Build-Depends: debhelper, dh-octave, octave-bar'
+  has DESCRIPTION 'Name: Foo'
+  check_run autodep8
+  assertTrue 'No octave-bar in Depends' 'grep ^Depends: stdout | grep --quiet octave-bar'
+}
+
 . shunit2
