@@ -24,8 +24,8 @@
 
 ## octave (octave-signal)
 
-    Test-Command: DH_OCTAVE_TEST_ENV="xvfb-run -a" /usr/bin/dh_octave_check
-    Depends: @, dh-octave-autopkgtest, xauth, xvfb
+    Test-Command: DH_OCTAVE_TEST_ENV="xvfb-run -a" /usr/bin/dh_octave_check --use-installed-package
+    Depends: @, octave-control (>= 3.1.0), dh-octave-autopkgtest (>= 0.5.6), xauth, xvfb
     Restrictions: allow-stderr
 
 ## perl (libtest-most-perl)
@@ -54,8 +54,8 @@
 
 ## r (r-cran-evaluate)
 
-    Test-Command: R -e "library('evaluate')"
-    Depends: @
+    Test-Command: /usr/share/dh-r/pkg-r-autopkgtest
+    Depends: @, pkg-r-autopkgtest
     Restrictions: allow-stderr
 
 ## ruby (ruby-sqlite3)
