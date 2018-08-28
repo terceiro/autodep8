@@ -1,3 +1,14 @@
+autodep8 (0.14) unstable; urgency=medium
+
+  * Add build-dependencies of Octave-Forge packages to unit tests Depends
+    + s/octave/generate: Parse Build-Depends from debian/control
+    + t/octave_test.sh: Add unit test for this new feature
+  * d/control:
+    + Add Rules-Requires-Root: no
+    + Bump Standards-Version to 4.2.1
+
+ -- Rafael Laboissiere <rafael@debian.org>  Mon, 27 Aug 2018 20:11:50 -0300
+
 autodep8 (0.13) unstable; urgency=medium
 
   [ Antonio Terceiro ]
