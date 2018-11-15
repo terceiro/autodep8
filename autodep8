@@ -33,7 +33,11 @@ rc=1
 
 if [ -f debian/tests/control.autodep8 ]; then
   cat debian/tests/control.autodep8
+
+  # 2 newlines to cope with control.autodep8 having no trailing newline
   echo
+  echo
+
   rc=0 # will now exit successfully even if we can't detect a package type.
 fi
 

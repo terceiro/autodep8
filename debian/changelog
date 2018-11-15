@@ -1,3 +1,10 @@
+autodep8 (0.15) unstable; urgency=medium
+
+  * Handle the case where debian/tests/control.autodep8 has no trailing
+    newline.
+
+ -- Antonio Terceiro <terceiro@debian.org>  Thu, 15 Nov 2018 12:42:50 -0200
+
 autodep8 (0.14) unstable; urgency=medium
 
   * Add build-dependencies of Octave-Forge packages to unit tests Depends
