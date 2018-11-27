@@ -5,11 +5,19 @@ test_no_detection() {
   assertEquals 1 "$exitstatus"
 }
 
+test_append_to_control() {
+  has debian/tests/control '# BEFORE'
+  run autodep8
+  assertEquals 0 "$exitstatus"
+  assertTrue 'output prepended to contents of debian/tests/control' "grep '^# BEFORE' stdout"
+  assertTrue 'empty line after contents of debian/tests/control' "grep '^\$' stdout"
+}
+
 test_append_to_control_autodep8() {
   has debian/tests/control.autodep8 '# BEFORE'
   run autodep8
   assertEquals 0 "$exitstatus"
-  assertTrue 'output appended to contents of debian/tests/control.autodep8' "grep '^# BEFORE' stdout"
+  assertTrue 'output prepended to contents of debian/tests/control.autodep8' "grep '^# BEFORE' stdout"
   assertTrue 'empty line after contents of debian/tests/control.autodep8' "grep '^\$' stdout"
 }
 

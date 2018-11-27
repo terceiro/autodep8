@@ -21,9 +21,11 @@ produces not output.
 
 # COMBINING AUTO-GENERATED TESTS WITH MANUALLY SPECIFIED ONES
 
-If `debian/tests/control.autodep8` exists, autodep8 will prepend the contents
-of that file to its own output. In that case, autodep8 will exit with a status
-of 0 even if no known package type is detected.
+If `debian/tests/control` exists, autodep8 will prepend the contents of that
+file to its own output. In that case, autodep8 will exit with a status of 0
+even if no known package type is detected. The same applies for
+`debian/tests/control.autodep8`, but the use of that file is deprecated because
+the test dependencies defined there aren't processed by dpkg-source.
 
 # EXAMPLES OF PRODUCED TEST SUITES
 

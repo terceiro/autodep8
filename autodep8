@@ -40,6 +40,15 @@ if [ -f debian/tests/control.autodep8 ]; then
 
   rc=0 # will now exit successfully even if we can't detect a package type.
 fi
+if [ -f debian/tests/control ]; then
+  cat debian/tests/control
+
+  # 2 newlines to cope with control having no trailing newline
+  echo
+  echo
+
+  rc=0 # will now exit successfully even if we can't detect a package type.
+fi
 
 
 for support_dir in \
