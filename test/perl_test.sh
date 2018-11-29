@@ -28,4 +28,20 @@ test_perl_test_pl() {
   check_run autodep8
 }
 
+test_perl_recommends() {
+  has debian/control 'Source: perl-foo
+Testsuite: autopkgtest-pkg-perl
+
+Package: perl-foo-1
+Recommends: perl-bar
+
+Package: perl-foo-2
+Recommends: perl-baz'
+  check_run autodep8
+  cp stdout /tmp/stdout
+  cp stderr /tmp/stderr
+  assertTrue 'No perl-bar in Depends' 'grep ^Depends: stdout | grep --quiet perl-bar'
+  assertTrue 'No perl-baz in Depends' 'grep ^Depends: stdout | grep --quiet perl-baz'
+}
+
 . shunit2

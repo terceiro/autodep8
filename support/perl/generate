@@ -1,5 +1,9 @@
 #!/bin/sh
 
+. $(dirname $0)/../common
+
+recommends=$(parse_control 'Recommends')
+
 cat <<EOF
 Test-Command: /usr/share/pkg-perl-autopkgtest/runner build-deps
 Depends: @, @builddeps@, pkg-perl-autopkgtest
@@ -8,6 +12,5 @@ Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps
 Depends: @, pkg-perl-autopkgtest
 
 Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps-and-recommends
-Depends: @, pkg-perl-autopkgtest
-Restrictions: needs-recommends
+Depends: @, $recommends pkg-perl-autopkgtest
 EOF

@@ -49,6 +49,8 @@ Build-Depends: debhelper, dh-octave, octave-bar'
   has DESCRIPTION 'Name: Foo'
   check_run autodep8
   assertTrue 'No octave-bar in Depends' 'grep ^Depends: stdout | grep --quiet octave-bar'
+  assertFalse 'dh-octave in Depends' 'grep ^Depends: stdout | grep --quiet dh-octave,'
+  assertFalse 'debhelper in Depends' 'grep ^Depends: stdout | grep --quiet debhelper'
 }
 
 . shunit2
