@@ -19,4 +19,20 @@ test_should_not_try_on_other_package_types_starting_with_r() {
   assertEquals "" "$(cat stdout stderr)"
 }
 
+test_r_recommends() {
+  has debian/control 'Source: r-foo
+Testsuite: autopkgtest-pkg-r
+
+Package: r-foo-1
+Recommends: r-bar
+
+Package: r-foo-2
+Recommends: r-baz'
+  check_run autodep8
+  cp stdout /tmp/stdout
+  cp stderr /tmp/stderr
+  assertTrue 'No r-bar in Depends' 'grep ^Depends: stdout | grep --quiet r-bar'
+  assertTrue 'No r-baz in Depends' 'grep ^Depends: stdout | grep --quiet r-baz'
+}
+
 . shunit2
