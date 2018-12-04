@@ -23,4 +23,5 @@ fi
 cat <<EOF
 Test-Command: cd "\$AUTOPKGTEST_TMP" && nodejs -e "require('$upstream_name');"
 Depends: @
+Restrictions: superficial
 EOF

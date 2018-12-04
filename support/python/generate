@@ -64,6 +64,7 @@ if [ -n "$py2_package" ]; then
         cat <<EOF
 Test-Command: set -e ; for py in \$(pyversions -r 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print $module" ; done
 Depends: python-all, $py2_package
+Restrictions: allow-stderr, superficial
 
 EOF
     fi
@@ -75,6 +76,7 @@ if [ -n "$py3_package" ]; then
         cat <<EOF
 Test-Command: set -e ; for py in \$(py3versions -r 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print($module)" ; done
 Depends: python3-all, $py3_package
+Restrictions: allow-stderr, superficial
 
 EOF
     fi
@@ -86,6 +88,7 @@ if [ -n "$pypy_package" ]; then
         cat <<EOF
 Test-Command: cd "\$AUTOPKGTEST_TMP" ; pypy -c "import $module; print $module"
 Depends: $pypy_package
+Restrictions: allow-stderr, superficial
 
 EOF
     fi
