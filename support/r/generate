@@ -2,10 +2,10 @@
 
 . $(dirname $0)/../common
 
-recommends=$(parse_control 'Recommends')
+rtestdeps=$(parse_descr_r)
 
 cat <<EOF
 Test-Command: /usr/share/dh-r/pkg-r-autopkgtest
-Depends: @, $recommends pkg-r-autopkgtest
+Depends: @, $rtestdeps pkg-r-autopkgtest
 Restrictions: allow-stderr
 EOF
