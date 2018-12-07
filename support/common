@@ -46,7 +46,7 @@ parse_descr_r(){
     if [ -f DESCRIPTION ]; then
         out=$(
             # Catch available Debian R packages
-            deb_pkgs=$(grep-aptavail -P -s Package -n -e ^r-)
+            deb_pkgs=$(grep-aptavail -P -s Package -n -e ^r- | sort -u)
             # List R packages required
             r_pkgs=$(grep-dctrl -n -s "Suggests" -F "Suggests" -r . DESCRIPTION \
                 | grep -v '^\s*#' \
@@ -65,7 +65,6 @@ parse_descr_r(){
                 | tr ' ' ',' \
                 | tr '\n' ', ' \
                 | sed 's/,,/,/g')
-        # At this step, some packages in $deb_r_pkgs are duplicated, but it's working
     else
         out=''
     fi
