@@ -1,5 +1,5 @@
 PREFIX ?= /usr/local
-install_support = $(patsubst support/%, install-%, $(wildcard support/*))
+install_support = $(filter-out install-common,$(patsubst support/%, install-%, $(wildcard support/*)))
 
 all: autodep8.1
 
@@ -13,6 +13,7 @@ update-examples:
 	sh examples.sh > examples.md
 
 install: $(install_support)
+	install -m 644 support/common $(DESTDIR)/$(PREFIX)/share/autodep8/support
 	install -d $(DESTDIR)/$(PREFIX)/bin
 	install -m 755 autodep8 $(DESTDIR)/$(PREFIX)/bin
 	install -d $(DESTDIR)/$(PREFIX)/share/man/man1
