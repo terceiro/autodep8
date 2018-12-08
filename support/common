@@ -24,7 +24,7 @@ parse_control(){
         out=''
     fi
     for pkg in $filter ; do
-        out=$(echo ,$out | sed -e "s/,$pkg,/,/" -e 's/,,/,/')
+        out=$(echo ,$out | sed -e "s/,$pkg,/,/" -e "s/,$pkg ([^,]*),/,/" -e 's/,,/,/')
         out=${out#,}
     done
 
