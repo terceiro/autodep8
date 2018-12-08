@@ -21,6 +21,7 @@
 
     Test-Command: cd "$AUTOPKGTEST_TMP" && nodejs -e "require('tar');"
     Depends: @
+    Restrictions: superficial
 
 ## octave (octave-signal)
 
@@ -32,30 +33,38 @@
 
     Test-Command: /usr/share/pkg-perl-autopkgtest/runner build-deps
     Depends: @, @builddeps@, pkg-perl-autopkgtest
+    Features: test-name=autodep8-perl-build-deps
     
     Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps
     Depends: @, pkg-perl-autopkgtest
+    Features: test-name=autodep8-perl
     
     Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps-and-recommends
-    Depends: @, pkg-perl-autopkgtest
-    Restrictions: needs-recommends
+    Depends: @,  pkg-perl-autopkgtest
+    Features: test-name=autodep8-perl-recommends
 
 ## python (python-flaky)
 
     Test-Command: set -e ; for py in $(pyversions -r 2>/dev/null) ; do cd "$AUTOPKGTEST_TMP" ; echo "Testing with $py:" ; $py -c "import flaky; print flaky" ; done
     Depends: python-all, python-flaky
+    Restrictions: allow-stderr, superficial
+    Features: test-name=autodep8-python2
     
     Test-Command: set -e ; for py in $(py3versions -r 2>/dev/null) ; do cd "$AUTOPKGTEST_TMP" ; echo "Testing with $py:" ; $py -c "import flaky; print(flaky)" ; done
     Depends: python3-all, python3-flaky
+    Restrictions: allow-stderr, superficial
+    Features: test-name=autodep8-python3
     
     Test-Command: cd "$AUTOPKGTEST_TMP" ; pypy -c "import flaky; print flaky"
     Depends: pypy-flaky
+    Restrictions: allow-stderr, superficial
+    Features: test-name=autodep8-pypy
     
 
 ## r (r-cran-evaluate)
 
     Test-Command: /usr/share/dh-r/pkg-r-autopkgtest
-    Depends: @, pkg-r-autopkgtest
+    Depends: @, r-cran-testthat,r-cran-testthat-dbgsym,r-cran-lattice,r-cran-lattice-dbgsym,r-cran-ggplot2, pkg-r-autopkgtest
     Restrictions: allow-stderr
 
 ## ruby (ruby-sqlite3)
