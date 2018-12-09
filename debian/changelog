@@ -1,3 +1,20 @@
+autodep8 (0.16) unstable; urgency=medium
+
+  [ Paul Gevers ]
+  * Prepend debian/tests/control to the output if it exists (Closes:
+    #908272)
+  * Generalize code to get BD or recommends from d/control and use it
+    (Closes: #907625)
+  * Let r packages install recommends for testing
+  * Add allow-stderr to python (Closes: #905153)
+  * Mark nodejs and python tests as superficial
+  * Give tests a name when there is more than one
+
+  [ Dylan Aïssi ]
+  * Improve support for R packages
+
+ -- Paul Gevers <elbrus@debian.org>  Sun, 09 Dec 2018 08:50:03 +0100
+
 autodep8 (0.15) unstable; urgency=medium
 
   * Handle the case where debian/tests/control.autodep8 has no trailing
