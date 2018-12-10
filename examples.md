@@ -40,7 +40,8 @@
     Features: test-name=autodep8-perl
     
     Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps-and-recommends
-    Depends: @,  pkg-perl-autopkgtest
+    Depends: @, pkg-perl-autopkgtest
+    Restrictions: needs-recommends
     Features: test-name=autodep8-perl-recommends
 
 ## python (python-flaky)
