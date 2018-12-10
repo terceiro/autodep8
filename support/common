@@ -5,7 +5,8 @@
 parse_control(){
     # Function to extract items in a field of debian/control return comma
     # separated
-    # tested with Recommends and Build-Depends
+    # tested with Build-Depends
+    # Don't use with Recommends as some packages add substvars (like cdbs)
     #
     # input1: control field
     # input2: items to filter out (optional)

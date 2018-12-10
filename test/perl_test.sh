@@ -38,10 +38,7 @@ Recommends: perl-bar
 Package: perl-foo-2
 Recommends: perl-baz'
   check_run autodep8
-  cp stdout /tmp/stdout
-  cp stderr /tmp/stderr
-  assertTrue 'No perl-bar in Depends' 'grep ^Depends: stdout | grep --quiet perl-bar'
-  assertTrue 'No perl-baz in Depends' 'grep ^Depends: stdout | grep --quiet perl-baz'
+  assertTrue 'No Recommends in control' 'grep ^Restrictions: stdout | grep --quiet needs-recommends'
 }
 
 . shunit2
