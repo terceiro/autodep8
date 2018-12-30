@@ -18,6 +18,13 @@ test_elpa_test_ert() {
   check_run autodep8
 }
 
+test_elpa_test_debhelper_compat() {
+  has debian/control 'Build-Depends: dh-elpa, debhelper-compat (= 12)'
+  has debian/rules 'foo'
+  has test.el '(ert-deftest foo)'
+  check_run autodep8
+}
+
 test_elpa_test_buttercup() {
   has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
   has debian/rules 'foo'
@@ -56,6 +63,14 @@ test_elpa_test_bad_compat() {
   has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
   has debian/rules 'foo'
   has debian/compat '9'
+  run autodep8
+  assertEquals 1 "$exitstatus"
+  assertEquals "" "$(cat stdout stderr)"
+}
+
+test_elpa_test_no_compat() {
+  has debian/control 'Build-Depends: dh-elpa, elpa-buttercup'
+  has debian/rules 'foo'
   run autodep8
   assertEquals 1 "$exitstatus"
   assertEquals "" "$(cat stdout stderr)"

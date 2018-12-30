@@ -8,10 +8,15 @@
 
 set -e
 
-# check that the file exists first, so that if it doesn't cat doesn't
-# produce stderr output which disrupts other test/*_test.sh
-test -e debian/compat
-test "$(cat debian/compat)" -ge 10
+if test -e debian/compat; then
+    # ^ check that the file exists first, so that if it doesn't the
+    # following cat doesn't produce stderr which disrupts other
+    # test/*_test.sh
+    test "$(cat debian/compat)" -ge 10
+elif (! grep-dctrl -q -F Build-Depends debhelper-compat debian/control) 2>/dev/null; then
+    # ^ mere presence of debhelper-compat build-dep implies compat >10
+    exit 1
+fi
 (! grep -q ".*DH_ELPA_TEST_DISABLE.*" debian/rules) 2>/dev/null
 (! grep -q "^disabled[ ]*=" debian/elpa-test) 2>/dev/null
 grep-dctrl -q -F Build-Depends dh-elpa debian/control
