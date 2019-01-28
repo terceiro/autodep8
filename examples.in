@@ -3,7 +3,7 @@
 dkms    kpatch
 elpa    flycheck
 go      prometheus
-nodejs  node-tar
+nodejs  node-temporary
 octave  octave-signal
 perl    libtest-most-perl
 python  python-flaky
