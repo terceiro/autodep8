@@ -19,9 +19,13 @@
 
 ## nodejs (node-tar)
 
-    Test-Command: cd "$AUTOPKGTEST_TMP" && nodejs -e "require('tar');"
-    Depends: @
+    Test-Command: /usr/share/pkg-js-autopkgtest/runner require
+    Depends: @, pkg-js-autopkgtest
     Restrictions: superficial
+
+    Test-Command: /usr/share/pkg-js-autopkgtest/runner
+    Depends: @, @builddeps@, pkg-js-autopkgtest
+    Restrictions: allow-stderr, skippable
 
 ## octave (octave-signal)
 
