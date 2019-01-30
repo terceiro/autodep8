@@ -1,3 +1,14 @@
+autodep8 (0.18) unstable; urgency=medium
+
+  [ Xavier Guimard ]
+  * Update nodejs files to use pkg-js-autopkgtest
+
+  [ Sean Whitton ]
+  * Update support/elpa/detect for 'debhelper-compat' build-dep
+    (Closes: #917804)
+
+ -- Paul Gevers <elbrus@debian.org>  Wed, 30 Jan 2019 20:17:41 +0100
+
 autodep8 (0.17) unstable; urgency=medium
 
   * Revert adding Recommends from d/control as it doesn't work properly
