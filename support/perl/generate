@@ -3,14 +3,16 @@
 cat <<EOF
 Test-Command: /usr/share/pkg-perl-autopkgtest/runner build-deps
 Depends: @, @builddeps@, pkg-perl-autopkgtest
+Restrictions: skippable
 Features: test-name=autodep8-perl-build-deps
 
 Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps
 Depends: @, pkg-perl-autopkgtest
+Restrictions: skippable, superficial
 Features: test-name=autodep8-perl
 
 Test-Command: /usr/share/pkg-perl-autopkgtest/runner runtime-deps-and-recommends
 Depends: @, pkg-perl-autopkgtest
-Restrictions: needs-recommends
+Restrictions: needs-recommends, skippable, superficial
 Features: test-name=autodep8-perl-recommends
 EOF
