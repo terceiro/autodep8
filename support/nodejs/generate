@@ -2,7 +2,7 @@
 
 cat <<EOF
 Test-Command: /usr/share/pkg-js-autopkgtest/runner require
-Depends: @, pkg-js-autopkgtest
+Depends: @, nodejs, pkg-js-autopkgtest
 Restrictions: superficial
 
 Test-Command: /usr/share/pkg-js-autopkgtest/runner
