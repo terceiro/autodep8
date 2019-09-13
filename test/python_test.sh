@@ -85,6 +85,14 @@ test_python_ignore_doc_pypy() {
   assertTrue 'have pypy test' 'grep --quiet "pypy -c" stdout'
 }
 
+test_python_ignore_py2_non_module() {
+  has 'debian/control' 'Source: python-foo\n\nPackage: python-foo-common\n\nPackage: python3-foo'
+  check_run autodep8
+  assertTrue 'get upstream name' 'grep --quiet "import foo;" stdout'
+  assertFalse 'dont have py2 test' 'grep --quiet "pyversions" stdout'
+  assertTrue 'have py3 test' 'grep --quiet "py3versions" stdout'
+}
+
 test_Testsuite_autopkgtest_pkg_python() {
   has debian/control "Testsuite: autopkgtest-pkg-python"
   check_run autodep8

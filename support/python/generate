@@ -13,10 +13,12 @@ if [ -n "$source_package" ] ; then
     py3_package=python3-$module
 fi
 
-source_package=$(grep-dctrl -n -s Source -F Source -r '^pypy-.*$' debian/control || true)
-if [ -n "$source_package" ] ; then
-    module=${source_package#pypy-}
-    pypy_package=pypy-$module
+if [ -z "$module" ]; then
+    source_package=$(grep-dctrl -n -s Source -F Source -r '^pypy-.*$' debian/control || true)
+    if [ -n "$source_package" ] ; then
+        module=${source_package#pypy-}
+        pypy_package=pypy-$module
+    fi
 fi
 
 # Try binary package(s)
@@ -39,7 +41,7 @@ if [ -z "$source_package" ] ; then
 fi
 
 # Try binary package(s)
-if [ -z "$source_package" ] ; then
+if [ -z "$pypy_package" ]; then
     binary_packages=$(grep-dctrl -n -s Package -F Package -r '^pypy-.*$' debian/control || true)
     if [ -n "$binary_packages" ] ; then
         for binary_package in $binary_packages ; do
