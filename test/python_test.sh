@@ -103,4 +103,12 @@ test_XS_Testsuite_autopkgtest_pkg_python() {
   check_run autodep8
 }
 
+test_python3_dev_only_d() {
+  has 'debian/control' 'Source: python-foo\nBuild-Depends: python3-dev\n\nPackage:python3-foo'
+  check_run autodep8
+  assertTrue 'get upstream name' 'grep --quiet "import foo;" stdout'
+  assertTrue 'test current python3' 'grep --quiet "py3versions -d" stdout'
+  assertFalse 'dont test other python3' 'grep --quiet "pyversions -r" stdout'
+}
+
 . shunit2
