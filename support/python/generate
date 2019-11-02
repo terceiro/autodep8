@@ -75,9 +75,16 @@ fi
 
 # Python3
 if [ -n "$py3_package" ]; then
+    python3_dev=$(grep-dctrl -n -sBuild-Depends -FBuild-Depends -w python3-dev -a '!' -FBuild-Depends -w python3-all-dev debian/control || true)
+    if [ -n "$python3_dev" ]; then
+        pyvers_arg=-d
+    else
+        pyvers_arg=-r
+    fi
+
     if [ $(grep-dctrl -n -s Package -F Package -X "$py3_package" debian/control) ] ; then
         cat <<EOF
-Test-Command: set -e ; for py in \$(py3versions -r 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print($module)" ; done
+Test-Command: set -e ; for py in \$(py3versions $pyvers_arg 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print($module)" ; done
 Depends: python3-all, $py3_package
 Restrictions: allow-stderr, superficial
 Features: test-name=autodep8-python3
