@@ -4,4 +4,5 @@ cat <<EOF
 Test-Command: /usr/lib/dkms/dkms-autopkgtest
 Restrictions: needs-root, allow-stderr
 Depends: @, dkms
+Features: test-name=dkms-autopkgtest
 EOF

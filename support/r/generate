@@ -8,4 +8,5 @@ cat <<EOF
 Test-Command: /usr/share/dh-r/pkg-r-autopkgtest
 Depends: @, $rtestdeps pkg-r-autopkgtest
 Restrictions: allow-stderr
+Features: test-name=pkg-r-autopkgtest
 EOF

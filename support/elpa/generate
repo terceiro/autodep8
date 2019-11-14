@@ -10,4 +10,5 @@ cat <<EOF
 Test-Command: dh_elpa_test --autopkgtest
 Depends: @, @builddeps@
 Restrictions: rw-build-tree
+Features: test-name=dh-elpa-test-autopkgtest
 EOF

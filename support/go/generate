@@ -5,4 +5,5 @@ cat <<EOF
 Test-Command: /usr/bin/dh_golang_autopkgtest
 Depends: @, @builddeps@, dh-golang
 Restrictions: allow-stderr
+Features: test-name=dh-golang-autopkgtest
 EOF
