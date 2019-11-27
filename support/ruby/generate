@@ -10,7 +10,9 @@ if [ -f debian/control ]; then
     | sed -e 's/,\s*/\n/g; s/^\s*//' \
     | sed -e 's/\s*<[^)]*>\s*$//' \
     | sed '/^\s*$/ d; /debhelper/ d; /gem2deb/ d; s/\n/, /' \
-    | tr '\n' ', ')
+    | tr '\n' ',' \
+    | sed -e 's/,/, /g'
+  )
 else
   builddeps=''
 fi
