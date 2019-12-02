@@ -1,3 +1,18 @@
+autodep8 (0.21) unstable; urgency=medium
+
+  [ Paul Gevers ]
+  * Add Restrictions: isolation-machine to dkms tests
+    (Closes: #945586)
+
+  [ Antonio Terceiro ]
+  * ruby: add spaces after commas for cosmetic reasons
+
+  [ Simon McVittie ]
+  * Allow Python module name to import to be overridden
+    (Closes: #884181, #929957)
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sun, 01 Dec 2019 22:17:13 -0300
+
 autodep8 (0.20) unstable; urgency=medium
 
   [ Steve Langasek ]
