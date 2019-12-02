@@ -29,6 +29,14 @@ autodep8. The valid values of *TYPE* are listed below as the headings of the
 
 See the autopkgtest(1) documentation for more details.
 
+# HOW THE PACKAGE TYPE IS DETECTED
+
+**autodep8** will first look for *Testsuite: autopkgtest-pkg-TYPE* field in
+*debian/control*. if *TYPE* is a known package type, then that is used. If not,
+each supported package type is tried against a set of heuristics, based on
+packages names, build dependencies. specific files under debian/, or a
+combination of those.
+
 # NOTES ABOUT SOME PACKAGE TYPES
 
 ## PYTHON PACKAGES
