@@ -16,6 +16,25 @@ test_python_detect_source_py3() {
   assertTrue 'have py3 test' 'grep --quiet "py3versions" stdout'
 }
 
+test_python_unusual_name_py3() {
+  has 'debian/control' 'Source: python-foo\n\nPackage:python3-foo'
+  has 'debian/tests/pkg-python/import-name' '# no capital letters in package names\nFoo\n'
+  check_run autodep8
+  assertTrue 'get upstream name' 'grep --quiet "import Foo;" stdout'
+  assertFalse 'not using wrong name' 'grep --quiet "import foo;" stdout'
+  assertFalse 'dont have py2 test' 'grep --quiet "pyversions" stdout'
+  assertTrue 'have py3 test' 'grep --quiet "py3versions" stdout'
+}
+
+test_python_underscore_py3() {
+  has 'debian/control' 'Source: python-foo-bar\n\nPackage:python3-foo-bar'
+  check_run autodep8
+  assertTrue 'get upstream name' 'grep --quiet "import foo_bar;" stdout'
+  assertFalse 'not using wrong name' 'grep --quiet "import foo;" stdout'
+  assertFalse 'dont have py2 test' 'grep --quiet "pyversions" stdout'
+  assertTrue 'have py3 test' 'grep --quiet "py3versions" stdout'
+}
+
 # PyPy is only Python 2 compatible for now.
 test_python_detect_source_pypy() {
   has 'debian/control' 'Source: python-foo\n\nPackage:pypy-foo'

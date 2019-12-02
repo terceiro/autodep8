@@ -19,6 +19,13 @@ suggested contents of debian/tests/control to the standard output.
 If a known package type is NOT detected, autodep8 exits with 1 and
 produces not output.
 
+## PYTHON PACKAGES
+
+If the module name to be imported cannot be inferred from the name of the
+Debian package, put it in `debian/tests/pkg-python/import-name`. For
+example, `python3-xlib` is used via `import Xlib`, so
+`echo Xlib > debian/tests/pkg-python/import-name` would be appropriate.
+
 # COMBINING AUTO-GENERATED TESTS WITH MANUALLY SPECIFIED ONES
 
 If `debian/tests/control` exists, autodep8 will prepend the contents of that
