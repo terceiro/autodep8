@@ -19,6 +19,18 @@ suggested contents of debian/tests/control to the standard output.
 If a known package type is NOT detected, autodep8 exits with 1 and
 produces not output.
 
+# AUTOMATIC USAGE BY AUTOPKGTEST
+
+autodep8 can be automatically called by autopkgtest(1). To achieve that, you
+must set the *Testsuite:* field in the source package paragraph to
+*autopkgtest-pkg-TYPE*, where *TYPE* if one of package types supported by
+autodep8. The valid values of *TYPE* are listed below as the headings of the
+"EXAMPLES OF PRODUCED TEST CONTROL FILES" section.
+
+See the autopkgtest(1) documentation for more details.
+
+# NOTES ABOUT SOME PACKAGE TYPES
+
 ## PYTHON PACKAGES
 
 If the module name to be imported cannot be inferred from the name of the
@@ -34,7 +46,7 @@ even if no known package type is detected. The same applies for
 `debian/tests/control.autodep8`, but the use of that file is deprecated because
 the test dependencies defined there aren't processed by dpkg-source.
 
-# EXAMPLES OF PRODUCED TEST SUITES
+# EXAMPLES OF PRODUCED TEST CONTROL FILES
 
 See [examples.md](examples.md).
 

@@ -6,6 +6,7 @@ autodep8 (0.21) unstable; urgency=medium
 
   [ Antonio Terceiro ]
   * ruby: add spaces after commas for cosmetic reasons
+  * Document valid values for Testsuite: field (Closes: #928622)
 
   [ Simon McVittie ]
   * Allow Python module name to import to be overridden

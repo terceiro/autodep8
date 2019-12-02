@@ -7,7 +7,7 @@ autodep8.1: autodep8.pod
 	pod2man --verbose --name autodep8 -c '' -r '' --utf8 $< $@ || ($(RM) $@; false)
 
 autodep8.pod: README.md examples.md
-	(sed -e '/examples.md/ r examples.md' README.md | sed -e '/examples.md/d; s/^##/=head2/; s/^#/=head1/' > $@) || ($(RM) $@; false)
+	(sed -e '/examples.md/ r examples.md' README.md | sed -e '/examples.md/d; s/^##/=head2/; s/^#/=head1/; s/\*\*\([^\*]*\)\*\*/B<\1>/g; s/\*\([^\*]*\)\*/I<\1>/g; ' > $@) || ($(RM) $@; false)
 
 update-examples:
 	sh examples.sh > examples.md
