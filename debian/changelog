@@ -1,3 +1,10 @@
+autodep8 (0.22) UNRELEASED; urgency=medium
+
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Tue, 10 Dec 2019 09:59:50 +0000
+
 autodep8 (0.21) unstable; urgency=medium
 
   [ Paul Gevers ]
