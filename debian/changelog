@@ -1,9 +1,13 @@
-autodep8 (0.22) UNRELEASED; urgency=medium
+autodep8 (0.22) unstable; urgency=medium
 
+  [ Debian Janitor ]
   * Bump debhelper from old 11 to 12.
   * Set debhelper-compat version in Build-Depends.
 
- -- Debian Janitor <janitor@jelmer.uk>  Tue, 10 Dec 2019 09:59:50 +0000
+  [ Antonio Terceiro ]
+  * ruby: add "Restrictions: skippable"
+
+ -- Antonio Terceiro <terceiro@debian.org>  Wed, 08 Jan 2020 18:00:47 -0300
 
 autodep8 (0.21) unstable; urgency=medium
 
