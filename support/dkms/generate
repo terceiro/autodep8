@@ -3,6 +3,6 @@
 cat <<EOF
 Test-Command: /usr/lib/dkms/dkms-autopkgtest
 Restrictions: needs-root, allow-stderr
-Depends: @, dkms
+Depends: dkms
 Features: test-name=dkms-autopkgtest
 EOF
