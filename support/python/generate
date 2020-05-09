@@ -60,7 +60,10 @@ fi
 
 module=$(echo "$module" | sed 's/-/_/g')
 
-if [ -e debian/tests/pkg-python/import-name ]; then
+if [ -n "${pkg_python_import_name:-}" ]; then
+    module="${pkg_python_import_name}"
+elif [ -e debian/tests/pkg-python/import-name ]; then
+    echo "W: using debian/tests/pkg-python/import-name is deprecated; please set \`import_name\` in debian/tests/autopkgtest-pkg-python.conf instead." >&2
     module=$(perl -ne 'next if /^\s*(#|$)/; print; last;' debian/tests/pkg-python/import-name)
 fi
 

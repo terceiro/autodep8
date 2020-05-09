@@ -1,6 +1,9 @@
 if [ -z "$AUTOPKGTEST_TMP" ]; then
   # only use local binaries if not testing the instaled package
   export PATH="$(readlink -f $(dirname $0))/..:$PATH"
+  export AUTODEP8_SUPPORT_DIR=$(dirname $0)/../support
+else
+  export AUTODEP8_SUPPORT_DIR="/usr/share/autodep8/support"
 fi
 
 run() {

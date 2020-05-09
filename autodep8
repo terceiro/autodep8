@@ -63,11 +63,14 @@ case "${program_path}" in
     ;;
 esac
 
+. "${support_dir}"/autodep8lib.sh
+
 for packagedir in $(find $support_dir -mindepth 1 -type d | LC_ALL=C.UTF-8 sort); do
   packagetype=$(basename $packagedir)
   if detect_by_control_field $packagetype ||
     detect_by_source_contents "$packagedir"
   then
+    read_config $packagetype
     $support_dir/$packagetype/generate
     exit 0
   fi

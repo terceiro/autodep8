@@ -37,14 +37,39 @@ each supported package type is tried against a set of heuristics, based on
 packages names, build dependencies. specific files under debian/, or a
 combination of those.
 
-# NOTES ABOUT SOME PACKAGE TYPES
+# PACKAGE-SPECIFIC CONFIGURATION
 
-## PYTHON PACKAGES
+Packages can provide configuration for **autodep8** in
+*debian/tests/autopkgtest-pkg-${PACKAGETYPE}.conf*. The file format is the the
+following:
 
-If the module name to be imported cannot be inferred from the name of the
-Debian package, put it in `debian/tests/pkg-python/import-name`. For
-example, `python3-xlib` is used via `import Xlib`, so
-`echo Xlib > debian/tests/pkg-python/import-name` would be appropriate.
+```
+# comment lines start with # and are ignored.
+# note that #'s only mark comments when in the beginning of the line
+# empty lines are also ignored
+
+# values are set in this format:
+var1=value1
+
+# spaces around the = sign are allowed
+var2 = value 2
+
+# backslashes allow one to set values that span multiple lines.
+# Note that the newline is removed in the final value, though
+# The following is equivalent to "multiline=value1, value2"
+variable = value1, \
+value2
+```
+
+The following configuration variables are supported:
+
+## python (debian/tests/autopkgtest-pkg-python.conf)
+
+**import_name**: name of the module to import, if it cannot be inferred from
+the name of the Debian package. For example, `python3-xlib` is used via `import
+Xlib`, so `import_name = Xlib` would be appropriate.  This used to be
+configured by writing to `debian/tests/pkg-python/import-name`, but that is now
+deprecated.
 
 # COMBINING AUTO-GENERATED TESTS WITH MANUALLY SPECIFIED ONES
 

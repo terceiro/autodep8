@@ -24,6 +24,17 @@ test_python_unusual_name_py3() {
   assertFalse 'not using wrong name' 'grep --quiet "import foo;" stdout'
   assertFalse 'dont have py2 test' 'grep --quiet "pyversions" stdout'
   assertTrue 'have py3 test' 'grep --quiet "py3versions" stdout'
+  assertTrue 'grep "W:.*deprecated" stderr'
+}
+
+test_python_unusual_name_py3_via_config() {
+  has 'debian/control' 'Source: python-foo\n\nPackage:python3-foo'
+  has 'debian/tests/autopkgtest-pkg-python.conf' 'import_name = Foo'
+  check_run autodep8
+  assertTrue 'get upstream name' 'grep --quiet "import Foo;" stdout'
+  assertFalse 'not using wrong name' 'grep --quiet "import foo;" stdout'
+  assertFalse 'dont have py2 test' 'grep --quiet "pyversions" stdout'
+  assertTrue 'have py3 test' 'grep --quiet "py3versions" stdout'
 }
 
 test_python_underscore_py3() {
