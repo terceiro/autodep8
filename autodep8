@@ -50,22 +50,26 @@ if [ -f debian/tests/control ]; then
   rc=0 # will now exit successfully even if we can't detect a package type.
 fi
 
+program_path="$(dirname $(readlink -f $0))"
+case "${program_path}" in
+  */bin):
+    # installed
+    prefix="$(dirname $program_path)"
+    support_dir="${prefix}/share/autodep8/support"
+    ;;
+  *)
+    # development
+    support_dir="${program_path}/support"
+    ;;
+esac
 
-for support_dir in \
-  $(dirname $(readlink -f $0))/support \
-  /usr/local/share/autodep8/support \
-  /usr/share/autodep8/support;
-do
-  if [ -d "$support_dir" ]; then
-    for packagedir in $(find $support_dir -mindepth 1 -type d | LC_ALL=C.UTF-8 sort); do
-      packagetype=$(basename $packagedir)
-      if detect_by_control_field $packagetype ||
-        detect_by_source_contents "$packagedir"
-      then
-        $support_dir/$packagetype/generate
-        exit 0
-      fi
-    done
+for packagedir in $(find $support_dir -mindepth 1 -type d | LC_ALL=C.UTF-8 sort); do
+  packagetype=$(basename $packagedir)
+  if detect_by_control_field $packagetype ||
+    detect_by_source_contents "$packagedir"
+  then
+    $support_dir/$packagetype/generate
+    exit 0
   fi
 done
 
