@@ -40,7 +40,7 @@ combination of those.
 # PACKAGE-SPECIFIC CONFIGURATION
 
 Packages can provide configuration for **autodep8** in
-*debian/tests/autopkgtest-pkg-${PACKAGETYPE}.conf*. The file format is the the
+*debian/tests/autopkgtest-pkg-${PACKAGETYPE}.conf*. The file format is the
 following:
 
 ```
