@@ -19,7 +19,7 @@ fi
 
 cat <<EOF
 Test-Command: gem2deb-test-runner --autopkgtest --check-dependencies 2>&1
-Depends: @, $builddeps gem2deb-test-runner
+Depends: @, $builddeps gem2deb-test-runner, ${pkg_ruby_extra_depends:-}
 Features: test-name=gem2deb-test-runner
-Restrictions: skippable
+Restrictions: skippable, ${pkg_ruby_extra_restrictions:-}
 EOF

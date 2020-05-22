@@ -8,7 +8,7 @@
 
 cat <<EOF
 Test-Command: dh_elpa_test --autopkgtest
-Depends: @, @builddeps@
-Restrictions: rw-build-tree
+Depends: @, @builddeps@, ${pkg_elpa_extra_depends:-}
+Restrictions: rw-build-tree, ${pkg_elpa_extra_restrictions:-}
 Features: test-name=dh-elpa-test-autopkgtest
 EOF

@@ -63,6 +63,14 @@ value2
 
 The following configuration variables are supported:
 
+## All package types
+
+**extra_depends**: extra test dependencies to be added to the generated tests.
+Will be included as-is in the generated control file.
+
+**extra_restrictions**: extra restrictions to be added to the generated tests.
+Will be included as-is in the generated control file.
+
 ## python (debian/tests/autopkgtest-pkg-python.conf)
 
 **import_name**: name of the module to import, if it cannot be inferred from
