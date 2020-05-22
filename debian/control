@@ -6,7 +6,10 @@ Uploaders: Antonio Terceiro <terceiro@debian.org>,
            Martin Pitt <mpitt@debian.org>,
            Paul Gevers <elbrus@debian.org>,
            Rafael Laboissiere <rafael@debian.org>
-Build-Depends: debhelper-compat (= 12), dctrl-tools, shunit2, python3
+Build-Depends: dctrl-tools,
+               debhelper-compat (= 12),
+               python3,
+               shunit2
 Standards-Version: 4.5.0
 Vcs-Git: https://salsa.debian.org/ci-team/autodep8.git
 Vcs-Browser: https://salsa.debian.org/ci-team/autodep8
@@ -14,7 +17,9 @@ Rules-Requires-Root: no
 
 Package: autodep8
 Architecture: all
-Depends: dctrl-tools, python3, ${misc:Depends}
+Depends: dctrl-tools,
+         python3,
+         ${misc:Depends}
 Description: DEP-8 test control file generator
  autodep8 will detect well-known types of packages and generate
  DEP-8-compliant test control files for them. It can be used by DEP-8
