@@ -7,7 +7,7 @@ Uploaders: Antonio Terceiro <terceiro@debian.org>,
            Paul Gevers <elbrus@debian.org>,
            Rafael Laboissiere <rafael@debian.org>
 Build-Depends: dctrl-tools,
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                python3,
                shunit2
 Standards-Version: 4.5.0
