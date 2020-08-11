@@ -1,7 +1,6 @@
 #!/bin/sh
 
 module=
-py2_package=
 py3_package=
 pypy_package=
 
@@ -9,7 +8,6 @@ pypy_package=
 source_package=$(grep-dctrl -n -s Source -F Source -r '^python3\?-.*$' debian/control || true)
 if [ -n "$source_package" ] ; then
     module=${source_package#python-}
-    py2_package=python-$module
     py3_package=python3-$module
 fi
 
@@ -33,7 +31,6 @@ if [ -z "$source_package" ] ; then
                 ;;
             esac
 
-            py2_package=python-$module
             py3_package=python3-$module
             break
         done
@@ -65,19 +62,6 @@ if [ -n "${pkg_python_import_name:-}" ]; then
 elif [ -e debian/tests/pkg-python/import-name ]; then
     echo "W: using debian/tests/pkg-python/import-name is deprecated; please set \`import_name\` in debian/tests/autopkgtest-pkg-python.conf instead." >&2
     module=$(perl -ne 'next if /^\s*(#|$)/; print; last;' debian/tests/pkg-python/import-name)
-fi
-
-# Python2
-if [ -n "$py2_package" ]; then
-    if [ "$(grep-dctrl -n -s Package -F Package -X "$py2_package" debian/control)" ] ; then
-        cat <<EOF
-Test-Command: set -e ; for py in \$(pyversions -r 2>/dev/null) ; do cd "\$AUTOPKGTEST_TMP" ; echo "Testing with \$py:" ; \$py -c "import $module; print $module" ; done
-Depends: python-all, $py2_package, ${pkg_python_extra_depends:-}
-Restrictions: allow-stderr, superficial, ${pkg_python_extra_restrictions:-}
-Features: test-name=autodep8-python2
-
-EOF
-    fi
 fi
 
 # Python3
