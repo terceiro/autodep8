@@ -1,6 +1,6 @@
 # type  example package
 # ----  ---------------
-dkms    kpatch
+dkms    acpi-call
 elpa    flycheck
 go      prometheus
 nodejs  node-temporary
