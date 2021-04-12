@@ -18,7 +18,7 @@ Rules-Requires-Root: no
 Package: autodep8
 Architecture: all
 Depends: dctrl-tools,
-         python3,
+         python3:any,
          ${misc:Depends}
 Description: DEP-8 test control file generator
  autodep8 will detect well-known types of packages and generate
