@@ -5,7 +5,7 @@ Maintainer: Debian CI team <team+ci@tracker.debian.org>
 Uploaders: Antonio Terceiro <terceiro@debian.org>,
            Martin Pitt <mpitt@debian.org>,
            Paul Gevers <elbrus@debian.org>,
-           Rafael Laboissiere <rafael@debian.org>
+           Rafael Laboissière <rafael@debian.org>
 Build-Depends: dctrl-tools,
                debhelper-compat (= 13),
                python3,
