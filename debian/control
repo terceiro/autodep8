@@ -10,7 +10,7 @@ Build-Depends: dctrl-tools,
                debhelper-compat (= 13),
                python3,
                shunit2
-Standards-Version: 4.5.0
+Standards-Version: 4.6.0
 Vcs-Git: https://salsa.debian.org/ci-team/autodep8.git
 Vcs-Browser: https://salsa.debian.org/ci-team/autodep8
 Rules-Requires-Root: no
