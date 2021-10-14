@@ -10,3 +10,7 @@ Depends: @, $rtestdeps pkg-r-autopkgtest, ${pkg_r_extra_depends:-}
 Restrictions: allow-stderr, ${pkg_r_extra_restrictions:-}
 Features: test-name=pkg-r-autopkgtest
 EOF
+
+if [ x"${pkg_r_architecture:-}" != x ]; then
+    echo Architecture: "${pkg_r_architecture}"
+fi

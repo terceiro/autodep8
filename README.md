@@ -71,6 +71,10 @@ Will be included as-is in the generated control file.
 **extra_restrictions**: extra restrictions to be added to the generated tests.
 Will be included as-is in the generated control file.
 
+**architecture**: Adds restrictions on what architecture the generated
+tests are suitable to run on.
+Will be included as-is in the generated control file.
+
 ## octave (debian/tests/autopkgtest-pkg-octave.conf)
 
 **test_env**: value for the DH_OCTAVE_TEST_ENV environment variable

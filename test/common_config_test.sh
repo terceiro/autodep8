@@ -16,4 +16,11 @@ test_extra_restrictions() {
   done
 }
 
+test_architecture() {
+  for f in $generators; do
+    pkgtype=$(basename $(dirname "$f"))
+    assertTrue "$pkgtype should support architecture" "grep 'Architecture:.*\${pkg_${pkgtype}_architecture.*}' $f"
+  done
+}
+
 . shunit2

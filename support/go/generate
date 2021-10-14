@@ -1,9 +1,15 @@
 #!/bin/sh
 
+extra_arch=""
+if [ x"${pkg_go_architecture:-}" != x ]; then
+    extra_arch="Architecture: ${pkg_go_architecture}"
+fi
+
 # Stderr is required because many go tools output status info to stderr.
 cat <<EOF
 Test-Command: /usr/bin/dh_golang_autopkgtest
 Depends: @, @builddeps@, dh-golang, ${pkg_go_extra_depends:-}
 Restrictions: allow-stderr, ${pkg_go_extra_restrictions:-}
 Features: test-name=dh-golang-autopkgtest
+${extra_arch}
 EOF

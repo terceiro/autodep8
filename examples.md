@@ -16,6 +16,7 @@
     Test-Command: /usr/bin/dh_golang_autopkgtest
     Depends: @, @builddeps@, dh-golang
     Restrictions: allow-stderr
+    Architecture: !armhf
 
 ## nodejs (node-tar)
 
