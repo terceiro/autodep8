@@ -12,3 +12,7 @@ Depends: @, @builddeps@, ${pkg_elpa_extra_depends:-}
 Restrictions: rw-build-tree, ${pkg_elpa_extra_restrictions:-}
 Features: test-name=dh-elpa-test-autopkgtest
 EOF
+
+if [ x"${pkg_elpa_architecture:-}" != x ]; then
+    echo Architecture: "${pkg_elpa_architecture}"
+fi

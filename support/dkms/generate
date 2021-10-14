@@ -6,3 +6,7 @@ Restrictions: needs-root, allow-stderr, ${pkg_dkms_extra_restrictions:-}
 Depends: dkms, ${pkg_dkms_extra_depends:-}
 Features: test-name=dkms-autopkgtest
 EOF
+
+if [ x"${pkg_dkms_architecture:-}" != x ]; then
+    echo Architecture: "${pkg_dkms_architecture}"
+fi

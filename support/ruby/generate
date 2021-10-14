@@ -23,3 +23,7 @@ Depends: @, $builddeps gem2deb-test-runner, ${pkg_ruby_extra_depends:-}
 Features: test-name=gem2deb-test-runner
 Restrictions: skippable, ${pkg_ruby_extra_restrictions:-}
 EOF
+
+if [ x"${pkg_ruby_architecture:-}" != x ]; then
+    echo Architecture: "${pkg_ruby_architecture}"
+fi

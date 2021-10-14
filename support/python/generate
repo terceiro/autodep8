@@ -79,8 +79,13 @@ Test-Command: set -e ; for py in \$(py3versions $pyvers_arg 2>/dev/null) ; do cd
 Depends: python3-all, $py3_package, ${pkg_python_extra_depends:-}
 Restrictions: allow-stderr, superficial, ${pkg_python_extra_restrictions:-}
 Features: test-name=autodep8-python3
-
 EOF
+
+        if [ x"${pkg_python_architecture:-}" != x ]; then
+            echo Architecture: "${pkg_python_architecture}"
+        else
+            echo ""
+        fi
     fi
 fi
 
@@ -92,7 +97,11 @@ Test-Command: cd "\$AUTOPKGTEST_TMP" ; pypy -c "import $module; print $module"
 Depends: $pypy_package, ${pkg_python_extra_depends:-}
 Restrictions: allow-stderr, superficial, ${pkg_python_extra_restrictions:-}
 Features: test-name=autodep8-pypy
-
 EOF
+        if [ x"${pkg_python_architecture:-}" != x ]; then
+            echo Architecture: "${pkg_python_architecture}"
+        else
+            echo ""
+        fi
     fi
 fi

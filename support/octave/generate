@@ -12,3 +12,7 @@ Test-Command: DH_OCTAVE_TEST_ENV=${pkg_octave_test_env:-\"xvfb-run -a\"} /usr/bi
 Depends: @, $builddeps dh-octave-autopkgtest (>= 0.5.6), xauth, xvfb, ${pkg_octave_extra_depends:-}
 Restrictions: allow-stderr, ${pkg_octave_extra_restrictions:-}
 EOF
+
+if [ x"${pkg_octave_architecture:-}" != x ]; then
+    echo Architecture: "${pkg_octave_architecture}"
+fi
