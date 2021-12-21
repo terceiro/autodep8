@@ -27,6 +27,7 @@ Description: DEP-8 test control file generator
   - Ruby packages using gem2deb/gem2deb-test-runner
   - Perl packages
   - Python packages
+  - Python packages using pybuild
   - NodeJS packages
   - Kernel module packages using DKMS
   - R packages
