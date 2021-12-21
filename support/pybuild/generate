@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+cat <<EOF
+Test-Command: pybuild-autopkgtest
+Depends: @, pybuild-plugin-autopkgtest, @builddeps@, ${pkg_pybuild_extra_depends:-}
+Restrictions: allow-stderr, skippable, ${pkg_pybuild_extra_restrictions:-}
+Features: test-name=pybuild-autopkgtest
+EOF
+
+if [ x"${pkg_pybuild_architecture:-}" != x ]; then
+    echo Architecture: "${pkg_pybuild_architecture}"
+fi
