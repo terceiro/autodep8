@@ -13,7 +13,6 @@ read_config() {
     conf="$(echo "$line" | sed -e 's/\s*=\s*/=/')" # remove spaces around first =
     if echo "${conf}" | grep -q '^[a-zA-Z_][a-zA-Z_0-9]*='; then
       export "pkg_${packagetype}_${conf}"
-      echo "$conf"
     else
       echo "W: ${config}: invalid configuration line: ${line} (ignored)" >&2
     fi
