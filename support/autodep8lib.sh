@@ -5,7 +5,7 @@ read_config() {
   if [ -n "${DEBUG_READ_CONFIG:-}" ]; then
     debug() { echo "$@"; }
   else
-    debug() {}
+    debug() { :; }
   fi
 
   tmpfile="$(mktemp)"
