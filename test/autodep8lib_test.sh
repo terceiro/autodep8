@@ -3,7 +3,7 @@
 
 run_read_config() {
   has debian/tests/autopkgtest-pkg-ruby.conf "$@"
-  check_run read_config ruby
+  DEBUG_READ_CONFIG=yes check_run read_config ruby
 }
 
 assertInvalidConfig() {

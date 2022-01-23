@@ -2,6 +2,11 @@ read_config() {
   packagetype="${1}"
   config="debian/tests/autopkgtest-pkg-${packagetype}.conf"
   [ ! -f "${config}" ] && return
+  if [ -n "${DEBUG_READ_CONFIG:-}" ]; then
+    debug() { echo "$@"; }
+  else
+    debug() {}
+  fi
 
   tmpfile="$(mktemp)"
   sed -e '
@@ -13,6 +18,7 @@ read_config() {
     conf="$(echo "$line" | sed -e 's/\s*=\s*/=/')" # remove spaces around first =
     if echo "${conf}" | grep -q '^[a-zA-Z_][a-zA-Z_0-9]*='; then
       export "pkg_${packagetype}_${conf}"
+      debug "${conf}"
     else
       echo "W: ${config}: invalid configuration line: ${line} (ignored)" >&2
     fi
