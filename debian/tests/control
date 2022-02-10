@@ -1,5 +1,6 @@
 Test-Command: make test
 Depends: @, shunit2
+Features: test-name=unit-tests
 
 Tests: integration-tests
 Restrictions: allow-stderr
