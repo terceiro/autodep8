@@ -3,5 +3,5 @@
 set -eu
 
 grep-dctrl --quiet \
-    -FBuild-Depends,Build-Depends-Indep,Depends -e '(^| )dkms' \
+    -FBuild-Depends,Build-Depends-Arch,Build-Depends-Indep,Depends -e '(^| )dkms' \
     -o -FPackage -e '\-dkms' debian/control
