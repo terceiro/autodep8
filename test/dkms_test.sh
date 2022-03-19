@@ -20,6 +20,11 @@ test_detect_dkms_builddepends() {
   check_run autodep8
 }
 
+test_detect_dkms_builddepends_arch() {
+  has 'debian/control' 'Build-Depends-Arch: dkms'
+  check_run autodep8
+}
+
 test_detect_dkms_builddepends_indep() {
   has 'debian/control' 'Build-Depends-Indep: dkms'
   check_run autodep8
