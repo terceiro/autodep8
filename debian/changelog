@@ -1,3 +1,25 @@
+autodep8 (0.26) unstable; urgency=medium
+
+  [ Reinhard Tartler ]
+  * Allow specifying the Architecture field
+
+  [ Sandro Tosi ]
+  * Remove reference to python2
+
+  [ Antonio Terceiro ]
+  * read_config: don't output valid lines read from config file
+  * read_config: fix tests
+  * Drop dependency on python3, not needed anymore
+  * autopkgtest: give a name to unit tests job
+
+  [ Andreas Beckmann ]
+  * dkms: add restriction breaks-testbed
+  * dkms: add restriction superficial (Closes: #1006569)
+  * dkms: add (triggering) dependency on linux-doc
+  * dkms: scan Build-Depends-Arch for dkms, too
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 19 Mar 2022 13:37:24 -0300
+
 autodep8 (0.25) unstable; urgency=medium
 
   [ Iain Lane ]
