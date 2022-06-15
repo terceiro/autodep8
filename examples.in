@@ -3,7 +3,7 @@
 dkms    acpi-call
 elpa    flycheck
 go      prometheus
-nodejs  node-temporary
+nodejs  node-abbrev
 octave  octave-signal
 perl    libtest-most-perl
 python  python-flaky
