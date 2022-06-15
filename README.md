@@ -56,8 +56,8 @@ var2 = value 2
 
 # backslashes allow one to set values that span multiple lines.
 # Note that the newline is removed in the final value, though
-# The following is equivalent to "multiline=value1, value2"
-variable = value1, \
+# The following is equivalent to "multilinevar=value1, value2"
+multilinevar = value1, \
 value2
 ```
 
