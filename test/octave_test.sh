@@ -45,12 +45,13 @@ test_no_inst_directory() {
 test_build_depends() {
   has_dir inst
   has debian/control 'Source: octave-foo
-Build-Depends: debhelper, dh-octave, octave-bar'
+Build-Depends: debhelper-compat, dh-octave, dh-octave-sequence, octave-bar'
   has DESCRIPTION 'Name: Foo'
   check_run autodep8
   assertTrue 'No octave-bar in Depends' 'grep ^Depends: stdout | grep --quiet octave-bar'
+  assertFalse 'debhelper-compat in Depends' 'grep ^Depends: stdout | grep --quiet debhelper-compat'
   assertFalse 'dh-octave in Depends' 'grep ^Depends: stdout | grep --quiet dh-octave,'
-  assertFalse 'debhelper in Depends' 'grep ^Depends: stdout | grep --quiet debhelper'
+  assertFalse 'dh-octave-sequence in Depends' 'grep ^Depends: stdout | grep --quiet dh-octave-sequence,'
 }
 
 . shunit2
