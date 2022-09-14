@@ -4,8 +4,8 @@ set -e
 
 . $(dirname $0)/../common
 
-# Get build-dependencies (debhelper and dh-octave excluded)
-builddeps=$(parse_control 'Build-Depends' 'debhelper dh-octave')
+# Get build-dependencies (debhelper-compat, dh-octave, and dh-octave-sequence excluded)
+builddeps=$(parse_control 'Build-Depends' 'debhelper-compat dh-octave dh-octave-sequence')
 
 cat <<EOF
 Test-Command: DH_OCTAVE_TEST_ENV=${pkg_octave_test_env:-\"xvfb-run -a\"} /usr/bin/dh_octave_check --use-installed-package
