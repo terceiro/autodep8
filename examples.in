@@ -1,7 +1,7 @@
 # type  example package
 # ----  ---------------
 dkms    acpi-call
-elpa    flycheck
+elpa    emacs-which-key
 go      prometheus
 nodejs  node-abbrev
 octave  octave-signal
