@@ -21,21 +21,6 @@ run() {
   "$@"
 }
 
-DOWNLOAD_ATTEMPTS=3
-get_source() {
-  local pkg i
-  pkg="${1}"
-  i=0
-  while [ "$i" -lt "${DOWNLOAD_ATTEMPTS}" ]; do
-    if run chronic apt-get source "${pkg}"; then
-      break
-    else
-      sleep 10
-    fi
-    i=$((i+1))
-  done
-}
-
 banner() {
   char="${1}"
   shift
@@ -50,8 +35,28 @@ banner = "${pkgtype}"
 
 tmpdir="$(mktemp --directory --tmpdir="${AUTOPKGTEST_TMP}" "${pkg}.XXXXXXXXX")"
 cd "${tmpdir}"
-get_source "${pkg}"
-cd "${pkg}"-*
+mkdir "${pkg}"
+cd "${pkg}"
+if [ "${pkgtype}" = python ]; then
+ binpkg="$(echo "${pkg}" | sed -e 's/python-/python3-/')"
+else
+  binpkg="${pkg}"
+fi
+mkdir debian
+cat > debian/control <<EOF
+Source: ${pkg}
+Testsuite: autopkgtest-pkg-${pkgtype}
+
+Package: ${binpkg}
+Architecture: all
+EOF
+cat > debian/changelog <<EOF
+pkg (0.0.1-1) UNRELEASED; urgency=medium
+
+  * Sample package
+
+ -- The Maintainer <maintainer@debian.org>  Mon, 27 Dec 2021 16:32:42 -0300
+EOF
 
 # basic
 banner - "${pkgtype} plain test"
