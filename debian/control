@@ -9,7 +9,7 @@ Uploaders: Antonio Terceiro <terceiro@debian.org>,
 Build-Depends: dctrl-tools,
                debhelper-compat (= 13),
                shunit2
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Git: https://salsa.debian.org/ci-team/autodep8.git
 Vcs-Browser: https://salsa.debian.org/ci-team/autodep8
 Rules-Requires-Root: no
